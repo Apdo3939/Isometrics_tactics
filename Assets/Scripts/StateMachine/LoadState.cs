@@ -19,6 +19,10 @@ public class LoadState : State
         yield return null;
         UnitAlliances();
         yield return null;
+        List<Vector3Int> blockers = Blockers.instance.GetBlockers();
+        yield return null;
+        SetBlockers(blockers);
+        yield return null;
         StateMachineController.instance.ChangeTo<TurnBeginState>();
     }
 
@@ -49,6 +53,15 @@ public class LoadState : State
                 uc.alliance = i;
                 return;
             }
+        }
+    }
+
+    void SetBlockers(List<Vector3Int> blockers)
+    {
+        foreach (Vector3Int pos in blockers)
+        {
+            TileLogic t = Board.GetTile(pos);
+            t.content = Blockers.instance.gameObject;
         }
     }
 }
