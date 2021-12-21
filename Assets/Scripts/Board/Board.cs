@@ -80,7 +80,7 @@ public class Board : MonoBehaviour
     {
         if (floorToCheck.tilemap.HasTile(pos))
         {
-            t.contentOrder += floorToCheck.order;
+            t.contentOrder = floorToCheck.order;
         }
     }
 

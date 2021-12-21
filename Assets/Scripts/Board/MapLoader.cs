@@ -55,7 +55,7 @@ public class MapLoader : MonoBehaviour
             }
             else
             {
-                uc.stats.stats[i].value = Random.Range(1, 7);
+                uc.stats.stats[i].value = Random.Range(3, 7);
             }
 
         }
