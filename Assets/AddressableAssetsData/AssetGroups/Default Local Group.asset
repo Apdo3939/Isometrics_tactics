@@ -16,7 +16,87 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: af46cd07694ceb349bb7d1b52a214aa2
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7ef31631656af3942824a07d0343d093
+    m_Address: Assets/Sprites/Units/Crusader/AttackNorth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/AttackNorth
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 02701effa6f38ba4b8dc2702033ad506
+    m_Address: Assets/Sprites/Units/Crusader/AttackSouth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/AttackSouth
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 237fd7df881636448a8f04c038d757d1
+    m_Address: Assets/Sprites/Units/Crusader/AttackEast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/AttackEast
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 62ee8b62745c6804cb0b6e95e5533302
+    m_Address: Assets/Sprites/Units/Crusader/AttackWest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/AttackWest
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5940ee4822763c64c9bc4bd28457783c
+    m_Address: Assets/Sprites/Units/Crusader/IdleEast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/IdleEast
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4be6a100302b12b4a9e5ce2bf401378f
+    m_Address: Assets/Sprites/Units/Crusader/IdleNorth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/IdleNorth
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ee2f1137cd6ec2b46b263520aa2d9892
+    m_Address: Assets/Sprites/Units/Crusader/IdleSouth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/IdleSouth
+    m_MainAsset: {fileID: 102900000, guid: ee2f1137cd6ec2b46b263520aa2d9892, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: ee2f1137cd6ec2b46b263520aa2d9892, type: 3}
+  - m_GUID: ead83728c95f0d64ea265eee37dc0df9
+    m_Address: Assets/Sprites/Units/Crusader/IdleWest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/IdleWest
+    m_MainAsset: {fileID: 102900000, guid: ead83728c95f0d64ea265eee37dc0df9, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: ead83728c95f0d64ea265eee37dc0df9, type: 3}
+  - m_GUID: ca88c2e3d08e1d7478d25bc274c060ab
+    m_Address: Assets/Sprites/Units/Crusader/WalkEast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b1890505e020ce5478008ea1b27a1d75
+    m_Address: Assets/Sprites/Units/Crusader/WalkNorth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 8f005b010b53a20428ca46f2ff2fb146
+    m_Address: Assets/Sprites/Units/Crusader/WalkSouth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 43a7dc0855c48324482bbfc5b531f4e6
+    m_Address: Assets/Sprites/Units/Crusader/WalkWest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7ed1141739f3ab540b8ec754d8624126, type: 2}
   m_SchemaSet:
