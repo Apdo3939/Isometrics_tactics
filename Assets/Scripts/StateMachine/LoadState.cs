@@ -13,6 +13,8 @@ public class LoadState : State
     {
         yield return StartCoroutine(Board.instance.InitSequence(this));
         yield return null;
+        yield return StartCoroutine(LoadAnimations());
+        yield return null;
         MapLoader.instance.CreateCharacters();
         yield return null;
         InitialOrdering();
@@ -62,6 +64,15 @@ public class LoadState : State
         {
             TileLogic t = Board.GetTile(pos);
             t.content = Blockers.instance.gameObject;
+        }
+    }
+
+    IEnumerator LoadAnimations()
+    {
+        SpriteLoader[] loaders = SpriteLoader.holder.GetComponentsInChildren<SpriteLoader>();
+        foreach (SpriteLoader loader in loaders)
+        {
+            yield return loader.Load();
         }
     }
 }
