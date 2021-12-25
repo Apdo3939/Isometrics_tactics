@@ -13,6 +13,7 @@ public class SpriteLoader : MonoBehaviour
     public float framerate;
     public float delayStart;
     public static Transform holder;
+    public Dictionary<string, Animation2D> animationsFinder;
 
     void Awake()
     {
@@ -22,21 +23,28 @@ public class SpriteLoader : MonoBehaviour
     public IEnumerator Load()
     {
         animations = new List<Animation2D>();
+        animationsFinder = new Dictionary<string, Animation2D>();
 
         foreach (string anim in animationNames)
         {
             for (int i = 0; i < directions.Count; i++)
             {
                 string[] tempName = new string[1] { transform.name + "/" + anim + directions[i] };
-                Debug.Log(transform.name + "/" + anim + directions[i]);
                 Animation2D tempAnimation2D = new Animation2D();
                 tempAnimation2D.frameRate = framerate;
                 tempAnimation2D.delayStart = delayStart;
                 tempAnimation2D.name = anim + directions[i];
                 tempAnimation2D.frames = new List<Sprite>();
                 animations.Add(tempAnimation2D);
+                animationsFinder.Add(tempAnimation2D.name, tempAnimation2D);
 
-                AsyncOperationHandle<IList<Sprite>> handle = Addressables.LoadAssets<Sprite>(tempName, null, Addressables.MergeMode.Union);
+                AsyncOperationHandle<IList<Sprite>> handle =
+                Addressables.LoadAssets<Sprite>(tempName, null, Addressables.MergeMode.Union);// Preterido...
+
+                //test with code unit...
+                //AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(tempName);
+                //end test code unit
+
 
                 yield return handle;
                 WhenFinished(handle);
@@ -53,5 +61,12 @@ public class SpriteLoader : MonoBehaviour
                 animations[animations.Count - 1].frames.Add(sprite);
             }
         }
+    }
+
+    public Animation2D GetAnimation(string name)
+    {
+        Animation2D rtv = null;
+        animationsFinder.TryGetValue(name, out rtv);
+        return rtv;
     }
 }

@@ -116,8 +116,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6658710496276621387}
   - component: {fileID: 6658710496276621388}
+  - component: {fileID: 4448691950390391045}
   m_Layer: 0
-  m_Name: Sprite_10000
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +189,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4448691950390391045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658710496276621389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d983fb8842d53ec42ae3e49fd905fb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisUnitSprite: {fileID: 0}
+  currentPlay:
+    name: 
+    frameRate: 10
+    delayStart: 1
+    frames: []
 --- !u!1 &6658710497166369285
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   faction: 0
+  alliance: 0
   chargeTime: 0
+  active: 0
+  spriteModel: 
+  SS: {fileID: 0}
 --- !u!1001 &5963719595640797497
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,10 +10,19 @@ public class UnitCharacter : MonoBehaviour
     public TileLogic tile;
     public int chargeTime;
     public bool active;
+    public string spriteModel;
+    public SpriteSwapper SS;
 
     void Awake()
     {
         stats = GetComponentInChildren<Stats>();
+        SS = transform.Find("Jumper/Sprite").GetComponent<SpriteSwapper>();
+    }
+
+    void Start()
+    {
+        SS.thisUnitSprite = SpriteLoader.holder.Find(spriteModel).GetComponent<SpriteLoader>();
+        SS.PlayAnimation("IdleSouth");
     }
 
     public int GetStat(StatEnum stat)

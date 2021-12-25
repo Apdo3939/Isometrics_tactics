@@ -23,8 +23,8 @@ public class MapLoader : MonoBehaviour
 
     public void CreateCharacters()
     {
-        UnitCharacter uc01 = CreateUnit(new Vector3Int(0, 2, 0), "Jogador01");
-        UnitCharacter uc02 = CreateUnit(new Vector3Int(0, -5, 0), "Inimigo01");
+        UnitCharacter uc01 = CreateUnit(new Vector3Int(0, 2, 0), "Jogador01", "Mini-Crusader");
+        UnitCharacter uc02 = CreateUnit(new Vector3Int(0, -5, 0), "Inimigo01", "Mini-Crusader");
 
         StateMachineController.instance.units.Add(uc01);
         StateMachineController.instance.units.Add(uc02);
@@ -33,7 +33,7 @@ public class MapLoader : MonoBehaviour
         uc02.faction = 1;
     }
 
-    public UnitCharacter CreateUnit(Vector3Int pos, string name)
+    public UnitCharacter CreateUnit(Vector3Int pos, string name, string spriteModel)
     {
         TileLogic t = Board.GetTile(pos);
         UnitCharacter uc = Instantiate(
@@ -44,6 +44,8 @@ public class MapLoader : MonoBehaviour
         );
         uc.tile = t;
         uc.name = name;
+        t.content = uc.gameObject;
+        uc.spriteModel = spriteModel;
 
         t.content = uc.gameObject;
 
