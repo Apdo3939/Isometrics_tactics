@@ -46,3 +46,4 @@ MonoBehaviour:
   damage: 10
   manaCost: 1
   icon: {fileID: 21300000, guid: cc100525a27d84847996fb24ceb657f3, type: 3}
+  gotHitDelay: 0.5

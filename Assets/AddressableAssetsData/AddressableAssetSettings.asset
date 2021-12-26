@@ -82,6 +82,10 @@ MonoBehaviour:
     - Mini-Crusader/WalkNorth
     - Mini-Crusader/WalkEast
     - Mini-Crusader/WalkWest
+    - Mini-Crusader/GotHitSouth
+    - Mini-Crusader/GotHitNorth
+    - Mini-Crusader/GotHitEast
+    - Mini-Crusader/GotHitWest
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2ead4fd3b9e515741b82b4312f4d1565, type: 2}

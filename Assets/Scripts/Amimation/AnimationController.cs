@@ -23,6 +23,21 @@ public class AnimationController : MonoBehaviour
         Play("Walk");
     }
 
+    public void Attack()
+    {
+        SS.PlayThenReturn("Attack" + unitCharacter.direction);
+    }
+
+    public void GotHit()
+    {
+        SS.PlayThenReturn("GotHit" + unitCharacter.direction);
+    }
+
+    public void GotHit(float delay)
+    {
+        Invoke("GotHit", delay);
+    }
+
     void Play(string animName)
     {
         animName += unitCharacter.direction;

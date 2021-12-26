@@ -19,10 +19,16 @@ public class PerformSkillState : State
     {
         yield return null;
         Turn.targets = Turn.skill.GetTargets();
+
         yield return null;
+        Turn.unitCharacter.direction = Turn.unitCharacter.tile.GetDirection(machine.selectedTile);
+        Turn.unitCharacter.animationController.Idle();
+        Turn.unitCharacter.animationController.Attack();
         Turn.skill.Effect();
+
         yield return null;
         CombatLog.CheckActive();
+
         yield return new WaitForSeconds(1.5f);
         if (CombatLog.IsOver())
         {

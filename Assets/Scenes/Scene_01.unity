@@ -1345,8 +1345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b861072559a10a4daa3af2bd7af2138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: 
-  animation2Ds: []
+  animations: []
+  framerate: 20
+  delayStart: 0
 --- !u!1 &1082176239
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SpriteLoader : MonoBehaviour
 {
-    public static readonly List<string> animationNames = new List<string>() { "Idle", "Walk", "Attack" };
+    public static readonly List<string> animationNames = new List<string>() { "Idle", "Walk", "Attack", "GotHit" };
     public static readonly List<string> directions = new List<string>() { "North", "South", "East", "West" };
     public List<Animation2D> animations;
     public float framerate;

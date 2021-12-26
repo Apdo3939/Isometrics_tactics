@@ -7,6 +7,7 @@ public class Skill : MonoBehaviour
     public int damage;
     public int manaCost;
     public Sprite icon;
+    public float gotHitDelay;
 
     public bool CanUse()
     {
@@ -42,7 +43,7 @@ public class Skill : MonoBehaviour
             if (uc != null)
             {
                 uc.SetStat(StatEnum.HP, -damage);
-                Debug.Log(damage + " Effect");
+                uc.animationController.GotHit(gotHitDelay);
             }
         }
     }
