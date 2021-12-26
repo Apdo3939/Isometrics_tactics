@@ -24,12 +24,22 @@ public class Movement : MonoBehaviour
         for (int i = 0; i < path.Count; i++)
         {
             TileLogic to = path[i];
+
+            Turn.unitCharacter.direction = currentTile.GetDirection(to);
+
             if (currentTile.floor != to.floor)
             {
+                //Turn.unitCharacter.animationController.Jump();
                 yield return StartCoroutine(Jump(to));
             }
-            else { yield return StartCoroutine(Walk(to)); }
+            else
+            {
+                Turn.unitCharacter.animationController.Walk();
+                yield return StartCoroutine(Walk(to));
+            }
         }
+
+        Turn.unitCharacter.animationController.Idle();
     }
 
     IEnumerator Walk(TileLogic to)

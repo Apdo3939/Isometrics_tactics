@@ -12,17 +12,20 @@ public class UnitCharacter : MonoBehaviour
     public bool active;
     public string spriteModel;
     public SpriteSwapper SS;
+    public string direction = "South";
+    public AnimationController animationController;
 
     void Awake()
     {
         stats = GetComponentInChildren<Stats>();
         SS = transform.Find("Jumper/Sprite").GetComponent<SpriteSwapper>();
+        animationController = GetComponent<AnimationController>();
     }
 
     void Start()
     {
         SS.thisUnitSprite = SpriteLoader.holder.Find(spriteModel).GetComponent<SpriteLoader>();
-        SS.PlayAnimation("IdleSouth");
+        animationController.Idle();
     }
 
     public int GetStat(StatEnum stat)

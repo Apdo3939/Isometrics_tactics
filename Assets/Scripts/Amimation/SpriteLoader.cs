@@ -20,6 +20,7 @@ public class SpriteLoader : MonoBehaviour
         if (holder == null) { holder = this.transform.parent; }
     }
 
+    //Load the animations... but not instantiate... some miss...
     public IEnumerator Load()
     {
         animations = new List<Animation2D>();
@@ -38,10 +39,14 @@ public class SpriteLoader : MonoBehaviour
                 animations.Add(tempAnimation2D);
                 animationsFinder.Add(tempAnimation2D.name, tempAnimation2D);
 
+                //But it is obsolete...
                 AsyncOperationHandle<IList<Sprite>> handle =
-                Addressables.LoadAssets<Sprite>(tempName, null, Addressables.MergeMode.Union);// Preterido...
+                Addressables.LoadAssets<Sprite>(tempName, null, Addressables.MergeMode.Union);
 
-                //test with code unit...
+                //Not work...
+                //yield return Addressables.LoadAssets<Sprite>(tempName, callback, Addressables.MergeMode.Union);
+
+                //test with code unit manual adressables 1.16.19... Not work...
                 //AsyncOperationHandle<Sprite> handle = Addressables.LoadAssetAsync<Sprite>(tempName);
                 //end test code unit
 
@@ -69,4 +74,11 @@ public class SpriteLoader : MonoBehaviour
         animationsFinder.TryGetValue(name, out rtv);
         return rtv;
     }
+
+    // Not work... version adressables 1.16.19
+    /*void callback(IAsyncOperation<Sprite> op){
+       if(op.Result!=null){
+           animations[animations.Count-1].frames.Add(op.Result);
+       }
+   }*/
 }
