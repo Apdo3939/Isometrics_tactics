@@ -28,9 +28,7 @@ public class Skill : MonoBehaviour
 
     public List<TileLogic> GetTargets()
     {
-        List<TileLogic> targets = new List<TileLogic>();
-        targets.Add(StateMachineController.instance.selectedTile);
-        return targets;
+        return GetComponentInChildren<SkillRange>().GetTilesInRange(Board.instance);
     }
 
     public void Effect()

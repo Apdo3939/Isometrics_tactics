@@ -274,6 +274,8 @@ MonoBehaviour:
   active: 0
   spriteModel: 
   SS: {fileID: 0}
+  direction: South
+  animationController: {fileID: 0}
 --- !u!114 &-2376937331863167416
 MonoBehaviour:
   m_ObjectHideFlags: 0

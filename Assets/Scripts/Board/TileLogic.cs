@@ -39,4 +39,12 @@ public class TileLogic
         return "West";
     }
 
+    public string GetDirection(Vector3Int t2)
+    {
+        if (this.pos.y < t2.y) { return "North"; }
+        if (this.pos.x < t2.x) { return "East"; }
+        if (this.pos.y > t2.y) { return "South"; }
+        return "West";
+    }
+
 }

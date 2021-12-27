@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class SkillTargetState : State
 {
+    List<TileLogic> selectedTiles;
     public override void Enter()
     {
         base.Enter();
-        inputs.OnMove += OnMoveTileSelector;
+        if (Turn.skill.GetComponentInChildren<SkillRange>().directionOriented)
+        { inputs.OnMove += ChangeDirection; }
+        else { inputs.OnMove += OnMoveTileSelector; }
         inputs.OnFire += OnFire;
+
+        selectedTiles = Turn.skill.GetTargets();
+        board.SelectTiles(selectedTiles, Turn.unitCharacter.alliance);
     }
 
     public override void Exit()
     {
         base.Exit();
-        inputs.OnMove -= OnMoveTileSelector;
+        if (Turn.skill.GetComponentInChildren<SkillRange>().directionOriented)
+        { inputs.OnMove -= ChangeDirection; }
+        else { inputs.OnMove -= OnMoveTileSelector; }
         inputs.OnFire -= OnFire;
+
+        board.DeSelectTiles(selectedTiles);
     }
 
     void OnFire(object sender, object args)
@@ -26,5 +36,21 @@ public class SkillTargetState : State
             if (Turn.skill.ValidateTarget()) { machine.ChangeTo<PerformSkillState>(); }
         }
         if (button == 2) { machine.ChangeTo<SkillSelectionState>(); }
+    }
+
+    void ChangeDirection(object sender, object args)
+    {
+        Vector3Int pos = (Vector3Int)args;
+
+        string dir = Turn.unitCharacter.tile.GetDirection(Turn.unitCharacter.tile.pos + pos);
+
+        if (Turn.unitCharacter.direction != dir)
+        {
+            board.DeSelectTiles(selectedTiles);
+            Turn.unitCharacter.direction = dir;
+            Turn.unitCharacter.GetComponent<AnimationController>().Idle();
+            selectedTiles = Turn.skill.GetTargets();
+            board.SelectTiles(selectedTiles, Turn.unitCharacter.alliance);
+        }
     }
 }

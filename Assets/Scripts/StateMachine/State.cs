@@ -7,6 +7,7 @@ public class State : MonoBehaviour
 {
     protected InputController inputs { get { return InputController.instance; } }
     protected StateMachineController machine { get { return StateMachineController.instance; } }
+    protected Board board { get { return Board.instance; } }
     protected int index;
     protected Image currentUISelector;
 
