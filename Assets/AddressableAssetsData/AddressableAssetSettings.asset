@@ -86,6 +86,14 @@ MonoBehaviour:
     - Mini-Crusader/GotHitNorth
     - Mini-Crusader/GotHitEast
     - Mini-Crusader/GotHitWest
+    - Mini-Crusader/JumpSouth
+    - Mini-Crusader/JumpNorth
+    - Mini-Crusader/JumpEast
+    - Mini-Crusader/JumpWest
+    - Mini-Crusader/DeathSouth
+    - Mini-Crusader/DeathNorth
+    - Mini-Crusader/DeathEast
+    - Mini-Crusader/DeathWest
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2ead4fd3b9e515741b82b4312f4d1565, type: 2}

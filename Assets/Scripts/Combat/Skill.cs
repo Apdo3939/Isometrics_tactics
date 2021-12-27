@@ -43,7 +43,8 @@ public class Skill : MonoBehaviour
             if (uc != null)
             {
                 uc.SetStat(StatEnum.HP, -damage);
-                uc.animationController.GotHit(gotHitDelay);
+                if (uc.GetStat(StatEnum.HP) <= 0) { uc.animationController.Death(gotHitDelay); }
+                else { uc.animationController.GotHit(gotHitDelay); }
             }
         }
     }

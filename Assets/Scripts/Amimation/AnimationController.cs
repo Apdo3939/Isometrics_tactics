@@ -43,4 +43,27 @@ public class AnimationController : MonoBehaviour
         animName += unitCharacter.direction;
         if (SS.currentPlay.name != animName) { SS.PlayAnimation(animName); }
     }
+
+    public void Death()
+    {
+        SS.PlayThenStop("Death" + unitCharacter.direction);
+    }
+
+    public void Death(float delay)
+    {
+        Invoke("Death", delay);
+    }
+
+    public float getAnimationTimer(string animName)
+    {
+        Animation2D animation = SS.thisUnitSprite.GetAnimation(animName);
+        float timePerFrame = 1 / animation.frameRate;
+        return animation.frames.Count * timePerFrame;
+    }
+
+    public float Jump()
+    {
+        Play("Jump");
+        return getAnimationTimer("Jump" + unitCharacter.direction);
+    }
 }

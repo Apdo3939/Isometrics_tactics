@@ -106,22 +106,22 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Mini-Crusader/GotHitSouth
-    m_MainAsset: {fileID: 102900000, guid: 81807d1470affe94c99201bde945b06b, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 81807d1470affe94c99201bde945b06b, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 4ad8405b912eeac478302f5cf89582aa
     m_Address: Assets/Sprites/Units/Mini-Crusader/GotHitNorth
     m_ReadOnly: 0
     m_SerializedLabels:
     - Mini-Crusader/GotHitNorth
-    m_MainAsset: {fileID: 102900000, guid: 4ad8405b912eeac478302f5cf89582aa, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 4ad8405b912eeac478302f5cf89582aa, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 28b58cdf46024ff479d482cf3ca191ae
     m_Address: Assets/Sprites/Units/Mini-Crusader/GotHitEast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Mini-Crusader/GotHitEast
-    m_MainAsset: {fileID: 102900000, guid: 28b58cdf46024ff479d482cf3ca191ae, type: 3}
-    m_TargetAsset: {fileID: 102900000, guid: 28b58cdf46024ff479d482cf3ca191ae, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 4fde602cf0ed37244862f75d89d78e79
     m_Address: Assets/Sprites/Units/Mini-Crusader/GotHitWest
     m_ReadOnly: 0
@@ -129,6 +129,62 @@ MonoBehaviour:
     - Mini-Crusader/GotHitWest
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 646fca39dfae0c54482ce267220a6377
+    m_Address: Assets/Sprites/Units/Mini-Crusader/JumpSouth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/JumpSouth
+    m_MainAsset: {fileID: 102900000, guid: 646fca39dfae0c54482ce267220a6377, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 646fca39dfae0c54482ce267220a6377, type: 3}
+  - m_GUID: 314f2b5acdb3cf34198ab4afdcbd9b06
+    m_Address: Assets/Sprites/Units/Mini-Crusader/JumpNorth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/JumpNorth
+    m_MainAsset: {fileID: 102900000, guid: 314f2b5acdb3cf34198ab4afdcbd9b06, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 314f2b5acdb3cf34198ab4afdcbd9b06, type: 3}
+  - m_GUID: b021972396c679e46a9af1a00018989f
+    m_Address: Assets/Sprites/Units/Mini-Crusader/JumpEast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/JumpEast
+    m_MainAsset: {fileID: 102900000, guid: b021972396c679e46a9af1a00018989f, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: b021972396c679e46a9af1a00018989f, type: 3}
+  - m_GUID: a0c910a2affe6d243a0272d31b9c9992
+    m_Address: Assets/Sprites/Units/Mini-Crusader/JumpWest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/JumpWest
+    m_MainAsset: {fileID: 102900000, guid: a0c910a2affe6d243a0272d31b9c9992, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: a0c910a2affe6d243a0272d31b9c9992, type: 3}
+  - m_GUID: 4de519c2b210dfe4fb8cc31e7418acb2
+    m_Address: Assets/Sprites/Units/Mini-Crusader/DeathSouth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/DeathSouth
+    m_MainAsset: {fileID: 102900000, guid: 4de519c2b210dfe4fb8cc31e7418acb2, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 4de519c2b210dfe4fb8cc31e7418acb2, type: 3}
+  - m_GUID: ea7e5e642ebc7724d817e671288b7153
+    m_Address: Assets/Sprites/Units/Mini-Crusader/DeathNorth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/DeathNorth
+    m_MainAsset: {fileID: 102900000, guid: ea7e5e642ebc7724d817e671288b7153, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: ea7e5e642ebc7724d817e671288b7153, type: 3}
+  - m_GUID: d17a7d6f94e273441a9f5e548196c49e
+    m_Address: Assets/Sprites/Units/Mini-Crusader/DeathWest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/DeathWest
+    m_MainAsset: {fileID: 102900000, guid: d17a7d6f94e273441a9f5e548196c49e, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: d17a7d6f94e273441a9f5e548196c49e, type: 3}
+  - m_GUID: ad544c3e7844bc04ebd326881b055ad8
+    m_Address: Assets/Sprites/Units/Mini-Crusader/DeathEast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Mini-Crusader/DeathEast
+    m_MainAsset: {fileID: 102900000, guid: ad544c3e7844bc04ebd326881b055ad8, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: ad544c3e7844bc04ebd326881b055ad8, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7ed1141739f3ab540b8ec754d8624126, type: 2}
   m_SchemaSet:

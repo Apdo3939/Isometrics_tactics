@@ -74,4 +74,24 @@ public class SpriteSwapper : MonoBehaviour
         Animation2D toPlay = thisUnitSprite.GetAnimation(name);
         sequenceAnimations.Enqueue(toPlay);
     }
+
+    public void PlayThenStop(string name)
+    {
+        Stop();
+        sequenceAnimations.Enqueue(thisUnitSprite.GetAnimation(name));
+        playing = StartCoroutine(PlayOnce());
+    }
+
+    IEnumerator PlayOnce()
+    {
+        currentPlay = sequenceAnimations.Dequeue();
+
+        float timePerFrame = 1 / currentPlay.frameRate;
+
+        for (int i = 0; i < currentPlay.frames.Count; i++)
+        {
+            SR.sprite = currentPlay.frames[i];
+            yield return new WaitForSeconds(timePerFrame);
+        }
+    }
 }

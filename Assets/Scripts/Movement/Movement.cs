@@ -29,8 +29,8 @@ public class Movement : MonoBehaviour
 
             if (currentTile.floor != to.floor)
             {
-                //Turn.unitCharacter.animationController.Jump();
-                yield return StartCoroutine(Jump(to));
+                float duration = Turn.unitCharacter.animationController.Jump();
+                yield return StartCoroutine(Jump(to, duration));
             }
             else
             {
@@ -54,13 +54,10 @@ public class Movement : MonoBehaviour
         //to.content = this.gameObject;
     }
 
-    IEnumerator Jump(TileLogic to)
+    IEnumerator Jump(TileLogic to, float duration)
     {
-        int id1 = LeanTween.move(transform.gameObject, to.worldPos, moveSpeed).id;
-        LeanTween.moveLocalY(jumper.gameObject, jumpHeight, moveSpeed * moveSpeed)
-        .setLoopPingPong(1).setEase(LeanTweenType.easeInOutQuad);
-
-        float timerOrderUpdate = moveSpeed;
+        yield return new WaitForSeconds(0.15f);
+        float timerOrderUpdate = duration;
         if (currentTile.floor.tilemap.tileAnchor.y > to.floor.tilemap.tileAnchor.y)
         {
             timerOrderUpdate *= 0.85f;
@@ -69,6 +66,10 @@ public class Movement : MonoBehaviour
         {
             timerOrderUpdate *= 0.2f;
         }
+
+        int id1 = LeanTween.move(transform.gameObject, to.worldPos, duration).id;
+        LeanTween.moveLocalY(jumper.gameObject, jumpHeight, duration * moveSpeed)
+        .setLoopPingPong(1).setEase(LeanTweenType.easeInOutQuad);
 
         yield return new WaitForSeconds(timerOrderUpdate);
         currentTile = to;
