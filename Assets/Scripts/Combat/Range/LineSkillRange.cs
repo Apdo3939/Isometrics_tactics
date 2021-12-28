@@ -33,7 +33,7 @@ public class LineSkillRange : SkillRange
 
         Vector3Int currentPos = startPos;
 
-        for (int i = 1; i < range; i++)
+        for (int i = 0; i < range; i++)
         {
             currentPos += direction;
             TileLogic t = Board.GetTile(currentPos);

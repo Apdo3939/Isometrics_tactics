@@ -15,14 +15,15 @@ public class Skill : MonoBehaviour
         return false;
     }
 
-    public bool ValidateTarget()
+    public bool ValidateTarget(List<TileLogic> targets)
     {
-        UnitCharacter unitCharacter = null;
-        if (StateMachineController.instance.selectedTile.content != null)
+        foreach (TileLogic t in targets)
         {
-            unitCharacter = StateMachineController.instance.selectedTile.content.GetComponent<UnitCharacter>();
+            if (t.content != null && t.content.GetComponent<UnitCharacter>() != null)
+            {
+                return true;
+            }
         }
-        if (unitCharacter != null) { return true; }
         return false;
     }
 

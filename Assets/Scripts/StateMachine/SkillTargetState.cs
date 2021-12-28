@@ -33,7 +33,15 @@ public class SkillTargetState : State
         int button = (int)args;
         if (button == 1)
         {
-            if (Turn.skill.ValidateTarget()) { machine.ChangeTo<PerformSkillState>(); }
+            if (Turn.skill.ValidateTarget(selectedTiles))
+            {
+                Turn.targets = selectedTiles;
+                machine.ChangeTo<PerformSkillState>();
+            }
+            else
+            {
+                Debug.Log("No unit");
+            }
         }
         if (button == 2) { machine.ChangeTo<SkillSelectionState>(); }
     }
