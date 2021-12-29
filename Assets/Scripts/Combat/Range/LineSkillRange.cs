@@ -8,7 +8,7 @@ public class LineSkillRange : SkillRange
     {
         directionOriented = true;
     }
-    public override List<TileLogic> GetTilesInRange(Board board)
+    public override List<TileLogic> GetTilesInRange()
     {
         UnitCharacter unit = Turn.unitCharacter;
         Vector3Int startPos = unit.tile.pos;

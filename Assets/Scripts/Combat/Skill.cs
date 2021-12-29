@@ -29,7 +29,7 @@ public class Skill : MonoBehaviour
 
     public List<TileLogic> GetTargets()
     {
-        return GetComponentInChildren<SkillRange>().GetTilesInRange(Board.instance);
+        return GetComponentInChildren<SkillRange>().GetTilesInRange();
     }
 
     public void Effect()
@@ -42,8 +42,16 @@ public class Skill : MonoBehaviour
             if (uc != null)
             {
                 uc.SetStat(StatEnum.HP, -damage);
-                if (uc.GetStat(StatEnum.HP) <= 0) { uc.animationController.Death(gotHitDelay); }
-                else { uc.animationController.GotHit(gotHitDelay); }
+
+                if (uc.GetStat(StatEnum.HP) <= 0)
+                {
+                    uc.animationController.Death(gotHitDelay);
+                }
+                else
+                {
+                    uc.animationController.Idle();
+                    uc.animationController.GotHit(gotHitDelay);
+                }
             }
         }
     }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InfiniteSkillRange : SkillRange
 {
-    public override List<TileLogic> GetTilesInRange(Board board)
+    public override List<TileLogic> GetTilesInRange()
     {
-        return new List<TileLogic>(board.tiles.Values);
+        return new List<TileLogic>(Board.instance.tiles.Values);
     }
 }

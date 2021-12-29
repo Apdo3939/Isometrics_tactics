@@ -18,7 +18,7 @@ public class PerformSkillState : State
     IEnumerator PerformSequence()
     {
         yield return null;
-        Turn.unitCharacter.direction = Turn.unitCharacter.tile.GetDirection(Turn.targets[0]);
+        Turn.unitCharacter.direction = Turn.skill.GetComponentInChildren<SkillRange>().GetDirection();
         Turn.unitCharacter.animationController.Idle();
         Turn.unitCharacter.animationController.Attack();
         Turn.skill.Effect();

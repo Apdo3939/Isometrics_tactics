@@ -33,10 +33,12 @@ public class TileLogic
 
     public string GetDirection(TileLogic t2)
     {
-        if (this.pos.y < t2.pos.y) { return "North"; }
+        /*if (this.pos.y < t2.pos.y) { return "North"; }
         if (this.pos.x < t2.pos.x) { return "East"; }
         if (this.pos.y > t2.pos.y) { return "South"; }
-        return "West";
+        return "West";*/
+
+        return GetDirection(t2.pos);
     }
 
     public string GetDirection(Vector3Int t2)
