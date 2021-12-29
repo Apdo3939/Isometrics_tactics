@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,10 +109,9 @@ public class Board : MonoBehaviour
         }
     }
 
-    public List<TileLogic> Search(TileLogic start)
+    public List<TileLogic> Search(TileLogic start, Func<TileLogic, TileLogic, bool> searchType)
     {
         List<TileLogic> tilesSearch = new List<TileLogic>();
-        Movement m = Turn.unitCharacter.GetComponent<Movement>();
 
         tilesSearch.Add(start);
         ClearSearch();
@@ -129,14 +129,16 @@ public class Board : MonoBehaviour
             {
                 TileLogic next = GetTile(t.pos + dirs[i]);
                 int movStat = Turn.unitCharacter.GetStat(StatEnum.MOV);
-                if (next == null || next.distance <= t.distance + 1 || t.distance + 1 > movStat || m.ValidateMovement(t, next))
+                if (next == null || next.distance <= t.distance + 1)
                 {
                     continue;
                 }
-                next.distance = t.distance + 1;
-                next.prev = t;
-                checkNext.Enqueue(next);
-                tilesSearch.Add(next);
+                if (searchType(t, next))
+                {
+                    next.prev = t;
+                    checkNext.Enqueue(next);
+                    tilesSearch.Add(next);
+                }
             }
             if (checkNow.Count == 0) { SwapReference(ref checkNow, ref checkNext); }
         }

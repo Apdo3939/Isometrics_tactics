@@ -53,11 +53,11 @@ public class MapLoader : MonoBehaviour
         {
             if (uc.stats.stats[i].type != StatEnum.MOV)
             {
-                uc.stats.stats[i].value = Random.Range(1, 100);
+                uc.stats.stats[i].value = Random.Range(5, 100);
             }
             else
             {
-                uc.stats.stats[i].value = Random.Range(3, 7);
+                uc.stats.stats[i].value = Random.Range(2, 6);
             }
 
         }

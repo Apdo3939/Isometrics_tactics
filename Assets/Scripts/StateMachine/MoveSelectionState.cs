@@ -11,7 +11,7 @@ public class MoveSelectionState : State
         MoveSelector(Turn.unitCharacter.tile);
         inputs.OnMove += OnMoveTileSelector;
         inputs.OnFire += OnFire;
-        tiles = Board.instance.Search(Turn.unitCharacter.tile);
+        tiles = Board.instance.Search(Turn.unitCharacter.tile, Turn.unitCharacter.GetComponent<Movement>().ValidateMovement);//change here if create a mess!!!
         tiles.Remove(Turn.unitCharacter.tile);
         Board.instance.SelectTiles(tiles, Turn.unitCharacter.alliance);
     }
