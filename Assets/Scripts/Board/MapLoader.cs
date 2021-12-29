@@ -59,7 +59,7 @@ public class MapLoader : MonoBehaviour
             {
                 uc.stats.stats[i].value = Random.Range(2, 6);
             }
-
+            //uc.stats[StatEnum.MaxHP] = 100;
         }
 
         return uc;
