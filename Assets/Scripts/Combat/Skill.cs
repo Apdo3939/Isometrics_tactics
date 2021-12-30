@@ -19,9 +19,13 @@ public class Skill : MonoBehaviour
     {
         foreach (TileLogic t in targets)
         {
-            if (t.content != null && t.content.GetComponent<UnitCharacter>() != null)
+            if (t.content != null)
             {
-                return true;
+                UnitCharacter unitCharacter = t.content.GetComponent<UnitCharacter>();
+                if (unitCharacter != null && GetComponentInChildren<SkillAffects>().IsTarget(unitCharacter))
+                {
+                    return true;
+                }
             }
         }
         return false;
