@@ -60,4 +60,10 @@ public class Skill : MonoBehaviour
     {
         targets.RemoveAll((x) => x.content == null);
     }
+
+    public List<TileLogic> GetArea()
+    {
+        List<TileLogic> targets = GetComponentInChildren<AreaOfEffect>().GetArea(Turn.targets);
+        return targets;
+    }
 }

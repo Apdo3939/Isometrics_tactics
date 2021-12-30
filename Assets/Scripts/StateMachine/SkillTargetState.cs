@@ -5,12 +5,24 @@ using UnityEngine;
 public class SkillTargetState : State
 {
     List<TileLogic> selectedTiles;
+    bool directionOriented;
+
     public override void Enter()
     {
         base.Enter();
-        if (Turn.skill.GetComponentInChildren<SkillRange>().directionOriented)
-        { inputs.OnMove += ChangeDirection; }
-        else { inputs.OnMove += OnMoveTileSelector; }
+
+        directionOriented = Turn.skill.GetComponentInChildren<SkillRange>().directionOriented;
+
+        if (directionOriented)
+        {
+            inputs.OnMove += ChangeDirection;
+        }
+
+        else
+        {
+            inputs.OnMove += OnMoveTileSelector;
+        }
+
         inputs.OnFire += OnFire;
 
         selectedTiles = Turn.skill.GetTargets();
@@ -20,9 +32,16 @@ public class SkillTargetState : State
     public override void Exit()
     {
         base.Exit();
-        if (Turn.skill.GetComponentInChildren<SkillRange>().directionOriented)
-        { inputs.OnMove -= ChangeDirection; }
-        else { inputs.OnMove -= OnMoveTileSelector; }
+
+        if (directionOriented)
+        {
+            inputs.OnMove -= ChangeDirection;
+        }
+        else
+        {
+            inputs.OnMove -= OnMoveTileSelector;
+        }
+
         inputs.OnFire -= OnFire;
 
         board.DeSelectTiles(selectedTiles);
@@ -31,19 +50,16 @@ public class SkillTargetState : State
     void OnFire(object sender, object args)
     {
         int button = (int)args;
-        if (button == 1)
+
+        if (button == 1 && (directionOriented || selectedTiles.Contains(Selector.instance.tile)))
         {
-            if (Turn.skill.ValidateTarget(selectedTiles))
-            {
-                Turn.targets = selectedTiles;
-                machine.ChangeTo<PerformSkillState>();
-            }
-            else
-            {
-                Debug.Log("No unit");
-            }
+            Turn.targets = selectedTiles;
+            machine.ChangeTo<ConfirmSkillState>();
         }
-        if (button == 2) { machine.ChangeTo<SkillSelectionState>(); }
+        else if (button == 2)
+        {
+            machine.ChangeTo<SkillSelectionState>();
+        }
     }
 
     void ChangeDirection(object sender, object args)
