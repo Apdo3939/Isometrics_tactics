@@ -15,7 +15,9 @@ public class Stats : MonoBehaviour
     private void Awake()
     {
         stats = new List<Stat>();
-        for (int i = 0; i < 10; i++)
+        int lenght = (int)StatEnum.MOV;
+
+        for (int i = 0; i <= lenght; i++)
         {
             Stat temp = new Stat();
             temp.type = (StatEnum)i;

@@ -43,7 +43,7 @@ public class Skill : MonoBehaviour
         for (int i = 0; i < Turn.targets.Count; i++)
         {
             UnitCharacter uc = Turn.targets[i].content.GetComponent<UnitCharacter>();
-            if (uc != null)
+            if (uc != null && RollToHit(uc))
             {
                 uc.SetStat(StatEnum.HP, -damage);
 
@@ -69,5 +69,17 @@ public class Skill : MonoBehaviour
     {
         List<TileLogic> targets = GetComponentInChildren<AreaOfEffect>().GetArea(Turn.targets);
         return targets;
+    }
+
+    bool RollToHit(UnitCharacter uc)
+    {
+        bool hit = GetComponentInChildren<HitRate>().TryToHit(uc);
+        if (hit)
+        {
+            Debug.Log("Hit!!!");
+            return true;
+        }
+        Debug.Log("Miss!!!");
+        return false;
     }
 }

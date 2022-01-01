@@ -12,6 +12,9 @@ public enum StatEnum
     DEF,
     MATK,
     MDEF,
+    ACC,
+    EVD,
+    RES,
     SPEED,
     MOV,
 }
