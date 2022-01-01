@@ -36,7 +36,7 @@ public class Skill : MonoBehaviour
         return GetComponentInChildren<SkillRange>().GetTilesInRange();
     }
 
-    public void Effect()
+    public void Perform()
     {
         FilterContent(Turn.targets);
 
@@ -81,5 +81,15 @@ public class Skill : MonoBehaviour
         }
         Debug.Log("Miss!!!");
         return false;
+    }
+
+    public int GetHitPrediction(UnitCharacter target)
+    {
+        return GetComponentInChildren<HitRate>().Predict(target);
+    }
+
+    public int GetDamagePrediction(UnitCharacter target)
+    {
+        return GetComponentInChildren<SkillEffect>().Predict(target);
     }
 }

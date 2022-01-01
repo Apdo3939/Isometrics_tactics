@@ -21,7 +21,7 @@ public class PerformSkillState : State
         Turn.unitCharacter.direction = Turn.skill.GetComponentInChildren<SkillRange>().GetDirection();
         Turn.unitCharacter.animationController.Idle();
         Turn.unitCharacter.animationController.Attack();
-        Turn.skill.Effect();
+        Turn.skill.Perform();
 
         yield return null;
         CombatLog.CheckActive();
