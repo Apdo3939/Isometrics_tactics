@@ -7,7 +7,6 @@ public class Skill : MonoBehaviour
     public int damage;
     public int manaCost;
     public Sprite icon;
-    public float gotHitDelay;
 
     public bool CanUse()
     {
@@ -43,9 +42,11 @@ public class Skill : MonoBehaviour
         for (int i = 0; i < Turn.targets.Count; i++)
         {
             UnitCharacter uc = Turn.targets[i].content.GetComponent<UnitCharacter>();
+
             if (uc != null && RollToHit(uc))
             {
-                uc.SetStat(StatEnum.HP, -damage);
+                GetComponentInChildren<SkillEffect>().Apply(uc);
+                /*uc.SetStat(StatEnum.HP, -damage);
 
                 if (uc.GetStat(StatEnum.HP) <= 0)
                 {
@@ -55,7 +56,7 @@ public class Skill : MonoBehaviour
                 {
                     uc.animationController.Idle();
                     uc.animationController.GotHit(gotHitDelay);
-                }
+                }*/
             }
         }
     }

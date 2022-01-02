@@ -59,8 +59,10 @@ public class MapLoader : MonoBehaviour
             {
                 uc.stats.stats[i].value = Random.Range(2, 6);
             }
-            //uc.stats[StatEnum.MaxHP] = 100;
         }
+
+        uc.stats[StatEnum.HP] = uc.stats[StatEnum.MaxHP];
+        uc.stats[StatEnum.MP] = uc.stats[StatEnum.MaxMP];
 
         return uc;
     }

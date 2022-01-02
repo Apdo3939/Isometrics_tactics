@@ -47,6 +47,53 @@ MonoBehaviour:
   baseBonusChance: 20
   hitScore: 0
   missScore: 0
+--- !u!1 &214465484084301598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8895867578808074218}
+  - component: {fileID: 5670362499352474559}
+  m_Layer: 0
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8895867578808074218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214465484084301598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7353204084183859959}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5670362499352474559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214465484084301598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b6ac37ed4d8ab4e88b2326e6f01c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 1
+  baseDamageMultiplier: 1
+  randomness: 0.2
+  gotHitDelay: 0.5
 --- !u!1 &334863873069801684
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +261,7 @@ Transform:
   - {fileID: 1260741275742893384}
   - {fileID: 5308185660708675566}
   - {fileID: 6488994561350150332}
+  - {fileID: 8895867578808074218}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,4 +280,3 @@ MonoBehaviour:
   damage: 10
   manaCost: 1
   icon: {fileID: 21300000, guid: 45ce4cad2e5a1484797a9a9ec55f41ea, type: 3}
-  gotHitDelay: 0.5
