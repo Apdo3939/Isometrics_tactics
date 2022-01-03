@@ -30,11 +30,29 @@ public class UnitCharacter : MonoBehaviour
 
     public int GetStat(StatEnum stat)
     {
-        return stats.stats[(int)stat].value;
+        return stats.stats[(int)stat].currentValue;
     }
 
     public void SetStat(StatEnum stat, int value)
     {
-        stats.stats[(int)stat].value = GetStat(stat) + value;
+        stats.stats[(int)stat].currentValue += value;
+    }
+
+    public void UpdateStat(StatEnum stat)
+    {
+        Stat toUpdate = stats.stats[(int)stat];
+        toUpdate.currentValue = stats[stat];
+        if (toUpdate.modifiers != null)
+        {
+            toUpdate.modifiers(toUpdate);
+        }
+    }
+
+    public void UpdateStat()
+    {
+        foreach (Stat s in stats.stats)
+        {
+            UpdateStat(s.type);
+        }
     }
 }

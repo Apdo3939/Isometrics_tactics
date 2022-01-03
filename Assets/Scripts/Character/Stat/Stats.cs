@@ -8,8 +8,8 @@ public class Stats : MonoBehaviour
 
     public int this[StatEnum s]
     {
-        get { return stats[(int)s].value; }
-        set { stats[(int)s].value = value; }
+        get { return stats[(int)s].baseValue; }
+        set { stats[(int)s].baseValue = value; }
     }
 
     private void Awake()

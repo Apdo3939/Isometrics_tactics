@@ -53,16 +53,17 @@ public class MapLoader : MonoBehaviour
         {
             if (uc.stats.stats[i].type != StatEnum.MOV)
             {
-                uc.stats.stats[i].value = Random.Range(5, 100);
+                uc.stats.stats[i].baseValue = Random.Range(5, 100);
             }
             else
             {
-                uc.stats.stats[i].value = Random.Range(2, 6);
+                uc.stats.stats[i].baseValue = Random.Range(2, 6);
             }
         }
 
         uc.stats[StatEnum.HP] = uc.stats[StatEnum.MaxHP];
         uc.stats[StatEnum.MP] = uc.stats[StatEnum.MaxMP];
+        uc.UpdateStat();
 
         return uc;
     }
