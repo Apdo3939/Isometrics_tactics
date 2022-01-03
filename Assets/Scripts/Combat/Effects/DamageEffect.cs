@@ -24,11 +24,11 @@ public class DamageEffect : SkillEffect
         {
             case DamageType.Physical:
                 attackerScore += Turn.unitCharacter.GetStat(StatEnum.ATK);
-                attackerScore += target.GetStat(StatEnum.DEF);
+                defenderScore += target.GetStat(StatEnum.DEF);
                 break;
             case DamageType.Magical:
                 attackerScore += Turn.unitCharacter.GetStat(StatEnum.MATK);
-                attackerScore += target.GetStat(StatEnum.MDEF);
+                defenderScore += target.GetStat(StatEnum.MDEF);
                 break;
         }
         float calculation = (attackerScore - (defenderScore / 2)) * baseDamageMultiplier;
