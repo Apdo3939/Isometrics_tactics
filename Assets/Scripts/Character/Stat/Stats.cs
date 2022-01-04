@@ -6,10 +6,15 @@ public class Stats : MonoBehaviour
 {
     public List<Stat> stats;
 
-    public int this[StatEnum s]
+    /*public int this[StatEnum s]
     {
         get { return stats[(int)s].baseValue; }
         set { stats[(int)s].baseValue = value; }
+    }*/
+
+    public Stat this[StatEnum s]
+    {
+        get { return stats[(int)s]; }
     }
 
     private void Awake()

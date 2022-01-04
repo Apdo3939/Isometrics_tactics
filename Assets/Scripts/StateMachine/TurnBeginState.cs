@@ -21,6 +21,11 @@ public class TurnBeginState : State
         machine.units.Sort((x, y) => x.chargeTime.CompareTo(y.chargeTime));
         Turn.unitCharacter = machine.units[0];
         yield return null;
+        if (Turn.unitCharacter.onTurnBegin != null)
+        {
+            Turn.unitCharacter.onTurnBegin();
+        }
+        yield return null;
         machine.ChangeTo<ChooseActionState>();
     }
 

@@ -11,12 +11,12 @@ public abstract class Modifier : MonoBehaviour
     public virtual void Activate(UnitCharacter unit)
     {
         host = unit;
-        host.stats.stats[(int)stat].modifiers += Modify;
+        host.stats[stat].modifiers += Modify;
         host.UpdateStat(stat);
     }
     public virtual void Deactivate()
     {
-        host.stats.stats[(int)stat].modifiers -= Modify;
+        host.stats[stat].modifiers -= Modify;
         host.UpdateStat(stat);
     }
 

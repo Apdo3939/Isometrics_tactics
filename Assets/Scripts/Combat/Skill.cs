@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    public int damage;
     public int manaCost;
     public Sprite icon;
 
@@ -46,17 +45,6 @@ public class Skill : MonoBehaviour
             if (uc != null && RollToHit(uc))
             {
                 GetComponentInChildren<SkillEffect>().Apply(uc);
-                /*uc.SetStat(StatEnum.HP, -damage);
-
-                if (uc.GetStat(StatEnum.HP) <= 0)
-                {
-                    uc.animationController.Death(gotHitDelay);
-                }
-                else
-                {
-                    uc.animationController.Idle();
-                    uc.animationController.GotHit(gotHitDelay);
-                }*/
             }
         }
     }

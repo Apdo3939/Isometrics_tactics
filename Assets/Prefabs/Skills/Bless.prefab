@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416422319274060094}
-  - component: {fileID: 6302937594874858074}
+  - component: {fileID: 2784200371310737726}
   m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7826114865941168033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6302937594874858074
+--- !u!114 &2784200371310737726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 341831403283787964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229b2b2ddb680194db8d895b576d21a1, type: 3}
+  m_Script: {fileID: 11500000, guid: e15d4a5fe7276064582e17d1b3eea280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  verticalRange: 2
+  range: 2
+  verticalRange: 1
   directionOriented: 0
 --- !u!1 &2445010450768197398
 GameObject:
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7858379801298435946}
-  - component: {fileID: 7215887714694807408}
+  - component: {fileID: 3271033609870494523}
   m_Layer: 0
   m_Name: AOE
   m_TagString: Untagged
@@ -77,7 +77,7 @@ Transform:
   m_Father: {fileID: 7826114865941168033}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7215887714694807408
+--- !u!114 &3271033609870494523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,9 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2445010450768197398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5d93ed11bdd56499cea1189ff03510, type: 3}
+  m_Script: {fileID: 11500000, guid: 08c5a1d7c8f544d428163b013b9f0388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 1
+  verticalrange: 1
 --- !u!1 &4358474943490807060
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa9dd1eea45dda45b2e93f22866c275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillAffectsType: 2
+  skillAffectsType: 1
 --- !u!1 &5465921196569065822
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944bb32f8aa22c148a00719f0224198e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  baseBonusChance: 20
+  type: 2
+  baseBonusChance: 0
   hitScore: 0
   missScore: 0
 --- !u!1 &5843592817482959644
@@ -223,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd93b1f18694f47b2dd7fb216aa1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: {fileID: 2968384201126213351, guid: e538a0627d53c1a4881d1dfd71fe20c5, type: 3}
-  duration: 3
+  status: {fileID: 1949399220649297536, guid: 4acb6446ae80a994c892de1d8f817f54, type: 3}
+  duration: 2
 --- !u!1 &8675707255264250093
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +238,7 @@ GameObject:
   - component: {fileID: 7826114865941168033}
   - component: {fileID: 8236570205902780692}
   m_Layer: 0
-  m_Name: PoisonDart
+  m_Name: Bless
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,4 +276,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaCost: 1
-  icon: {fileID: 21300000, guid: d92f4984b527d4c41947e5edbab1b413, type: 3}
+  icon: {fileID: 21300000, guid: 9f277bd5def19e244b67ac313bbd4aac, type: 3}

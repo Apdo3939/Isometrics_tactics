@@ -61,8 +61,8 @@ public class MapLoader : MonoBehaviour
             }
         }
 
-        uc.stats[StatEnum.HP] = uc.stats[StatEnum.MaxHP];
-        uc.stats[StatEnum.MP] = uc.stats[StatEnum.MaxMP];
+        uc.stats[StatEnum.HP].baseValue = uc.stats[StatEnum.MaxHP].baseValue;
+        uc.stats[StatEnum.MP].baseValue = uc.stats[StatEnum.MaxMP].baseValue;
         uc.UpdateStat();
 
         return uc;

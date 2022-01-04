@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void OnTurnBegin();
+
 public class UnitCharacter : MonoBehaviour
 {
     public Stats stats;
@@ -14,6 +16,7 @@ public class UnitCharacter : MonoBehaviour
     public SpriteSwapper SS;
     public string direction = "South";
     public AnimationController animationController;
+    public OnTurnBegin onTurnBegin;
 
     void Awake()
     {
@@ -41,7 +44,7 @@ public class UnitCharacter : MonoBehaviour
     public void UpdateStat(StatEnum stat)
     {
         Stat toUpdate = stats.stats[(int)stat];
-        toUpdate.currentValue = stats[stat];
+        toUpdate.currentValue = stats[stat].baseValue;
         if (toUpdate.modifiers != null)
         {
             toUpdate.modifiers(toUpdate);

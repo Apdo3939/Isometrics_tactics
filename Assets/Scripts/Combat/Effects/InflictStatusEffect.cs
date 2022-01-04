@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class InflictStatusEffect : SkillEffect
 {
-    public GameObject status;
+    public CombatStatus status;
     public int duration;
 
     public override void Apply(UnitCharacter target)
     {
         Transform holder = target.transform.Find("Status");
-        GameObject temp = Instantiate(status, holder.position, Quaternion.identity, holder);
-        temp.name = temp.name.Replace("(Clone)", "");
+        CombatStatus instantiatedStatus = Instantiate(status, holder.position, Quaternion.identity, holder);
+        instantiatedStatus.name = instantiatedStatus.name.Replace("(Clone)", "");
+        instantiatedStatus.unit = target;
+        instantiatedStatus.duration = duration;
+        instantiatedStatus.Effect();
     }
 
     public override int Predict(UnitCharacter target)
