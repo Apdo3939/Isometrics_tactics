@@ -42,7 +42,7 @@ public class DamageEffect : SkillEffect
         int currentHP = target.GetStat(StatEnum.HP);
         float roll = Random.Range(1 - randomness, 1 + randomness);
         int finalDamage = (int)(damage * roll);
-        target.SetStat(StatEnum.HP, -Mathf.Clamp(finalDamage, 0, currentHP));
+        target.SetStat(StatEnum.HP, -finalDamage);
 
         /*if(!isPrimary)
             return;*/

@@ -15,8 +15,7 @@ public class HealEffect : SkillEffect
         int currentHP = target.GetStat(StatEnum.HP);
         float roll = Random.Range(1 - randomness, 1 + randomness);
         int finalHeal = (int)(initial * roll);
-        int heal = Mathf.Clamp(finalHeal, 0, target.GetStat(StatEnum.MaxHP) - currentHP);
-        target.SetStat(StatEnum.HP, heal);
+        target.SetStat(StatEnum.HP, finalHeal);
     }
 
     public override int Predict(UnitCharacter target)

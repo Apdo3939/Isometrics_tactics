@@ -38,7 +38,20 @@ public class UnitCharacter : MonoBehaviour
 
     public void SetStat(StatEnum stat, int value)
     {
-        stats.stats[(int)stat].currentValue += value;
+        //stats.stats[(int)stat].currentValue += value;
+        if (stat == StatEnum.HP)
+        {
+            stats[stat].currentValue = ClampStat(StatEnum.MaxHP, stats[stat].currentValue + value);
+        }
+        else if (stat == StatEnum.MP)
+        {
+            stats[stat].currentValue = ClampStat(StatEnum.MaxMP, stats[stat].currentValue + value);
+        }
+    }
+
+    int ClampStat(StatEnum type, int value)
+    {
+        return Mathf.Clamp(value, 0, stats[type].currentValue);
     }
 
     public void UpdateStat(StatEnum stat)
