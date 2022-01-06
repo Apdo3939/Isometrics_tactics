@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public delegate void OnTurnBegin();
 
@@ -17,6 +18,7 @@ public class UnitCharacter : MonoBehaviour
     public string direction = "South";
     public AnimationController animationController;
     public OnTurnBegin onTurnBegin;
+    public Image lifeBar;
 
     void Awake()
     {
@@ -42,6 +44,7 @@ public class UnitCharacter : MonoBehaviour
         if (stat == StatEnum.HP)
         {
             stats[stat].currentValue = ClampStat(StatEnum.MaxHP, stats[stat].currentValue + value);
+            SetLifeBar();
         }
         else if (stat == StatEnum.MP)
         {
@@ -69,6 +72,30 @@ public class UnitCharacter : MonoBehaviour
         foreach (Stat s in stats.stats)
         {
             UpdateStat(s.type);
+        }
+    }
+
+    void SetLifeBar()
+    {
+        float maxHp = (float)GetStat(StatEnum.MaxHP);
+        float fillvalue = (stats[StatEnum.HP].currentValue * 100 / maxHp) / 100;
+        lifeBar.fillAmount = fillvalue;
+
+        if (fillvalue >= 0.75)
+        {
+            lifeBar.color = Color.green;
+        }
+        else if (fillvalue >= 0.50)
+        {
+            lifeBar.color = Color.yellow;
+        }
+        else if (fillvalue >= 0.25)
+        {
+            lifeBar.color = Color.magenta;
+        }
+        else
+        {
+            lifeBar.color = Color.red;
         }
     }
 }
