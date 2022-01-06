@@ -10,6 +10,9 @@ public class ConfirmSkillState : State
         inputs.OnFire += OnFire;
         Turn.targets = Turn.skill.GetArea();
         board.SelectTiles(Turn.targets, Turn.unitCharacter.alliance);
+
+        machine.panelSkillPrediction.SetPredictionText();
+        machine.panelSkillPrediction.positioner.MoveTo("Show");
     }
 
     public override void Exit()
@@ -17,6 +20,7 @@ public class ConfirmSkillState : State
         base.Exit();
         inputs.OnFire -= OnFire;
         board.DeSelectTiles(Turn.targets);
+        machine.panelSkillPrediction.positioner.MoveTo("Hide");
     }
 
     public void OnFire(object sender, object args)

@@ -24,6 +24,9 @@ public class StateMachineController : MonoBehaviour
     public PanelPositioner skillActionPanel;
     public Sprite skillActionBlocked;
 
+    [Header("SkillPrediction")]
+    public PanelSkillPrediction panelSkillPrediction;
+
     private void Awake()
     {
         instance = this;
