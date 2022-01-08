@@ -21,6 +21,7 @@ public class ConfirmSkillState : State
         inputs.OnFire -= OnFire;
         board.DeSelectTiles(Turn.targets);
         machine.panelSkillPrediction.positioner.MoveTo("Hide");
+        machine.panelCharacterRight.Hide();
     }
 
     public void OnFire(object sender, object args)
@@ -30,6 +31,7 @@ public class ConfirmSkillState : State
         {
             if (Turn.skill.ValidateTarget(Turn.targets))
             {
+                machine.panelCharacterLeft.Hide();
                 machine.ChangeTo<PerformSkillState>();
             }
             else

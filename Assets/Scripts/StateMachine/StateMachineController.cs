@@ -27,6 +27,10 @@ public class StateMachineController : MonoBehaviour
     [Header("SkillPrediction")]
     public PanelSkillPrediction panelSkillPrediction;
 
+    [Header("Character")]
+    public PanelCharacter panelCharacterLeft;
+    public PanelCharacter panelCharacterRight;
+
     private void Awake()
     {
         instance = this;

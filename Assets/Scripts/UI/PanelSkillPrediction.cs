@@ -43,6 +43,7 @@ public class PanelSkillPrediction : MonoBehaviour
         {
             toHit = Turn.skill.GetHitPrediction(target);
             predict = Turn.skill.GetEffectPrediction(target);
+            StateMachineController.instance.panelCharacterRight.Show(target);
         }
 
         chanceToHit.text = Mathf.Clamp(toHit, 0, 100) + "% chance to hit";

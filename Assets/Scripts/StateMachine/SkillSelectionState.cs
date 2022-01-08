@@ -12,6 +12,7 @@ public class SkillSelectionState : State
         inputs.OnMove += OnMove;
         inputs.OnFire += OnFire;
         machine.skillActionPanel.MoveTo("Show");
+        machine.panelCharacterLeft.Show(Turn.unitCharacter);
         currentUISelector = machine.skillActionSelector;
         ChangeUISelector(machine.skillActionButons);
         CheckSkills();
@@ -49,6 +50,7 @@ public class SkillSelectionState : State
         }
         else if (button == 2)
         {
+            machine.panelCharacterLeft.Hide();
             machine.ChangeTo<ChooseActionState>();
         }
     }

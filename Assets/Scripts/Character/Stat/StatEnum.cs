@@ -8,6 +8,7 @@ public enum StatEnum
     MaxHP,
     MP,
     MaxMP,
+    LVL,
     ATK,
     DEF,
     MATK,

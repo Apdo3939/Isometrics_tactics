@@ -59,7 +59,8 @@ public class UnitCharacter : MonoBehaviour
 
     public void UpdateStat(StatEnum stat)
     {
-        Stat toUpdate = stats.stats[(int)stat];
+        //Stat toUpdate = stats.stats[(int)stat];
+        Stat toUpdate = stats[stat];
         toUpdate.currentValue = stats[stat].baseValue;
         if (toUpdate.modifiers != null)
         {
