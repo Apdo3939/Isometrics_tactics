@@ -7,6 +7,13 @@ public class TurnEndState : State
     public override void Enter()
     {
         base.Enter();
+        CombatLog.CheckActive();
+        if (CombatLog.IsOver())
+        {
+            Debug.Log("Game Over");
+            return;
+        }
+
         StartCoroutine(AddUnitDelay());
     }
 
@@ -30,4 +37,6 @@ public class TurnEndState : State
 
         machine.ChangeTo<TurnBeginState>();
     }
+
+
 }

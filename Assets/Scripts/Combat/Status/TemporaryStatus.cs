@@ -19,7 +19,11 @@ public class TemporaryStatus : CombatStatus
         duration--;
         if (duration <= 0)
         {
-            Destroy(this.gameObject);
+            if (this.gameObject == null)
+            {
+                Destroy(this.gameObject);
+            }
+
         }
     }
 }

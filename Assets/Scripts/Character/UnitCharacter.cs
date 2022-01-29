@@ -44,6 +44,7 @@ public class UnitCharacter : MonoBehaviour
         if (stat == StatEnum.HP)
         {
             stats[stat].currentValue = ClampStat(StatEnum.MaxHP, stats[stat].currentValue + value);
+            PopCombatText(value);
             SetLifeBar();
         }
         else if (stat == StatEnum.MP)
@@ -98,5 +99,10 @@ public class UnitCharacter : MonoBehaviour
         {
             lifeBar.color = Color.red;
         }
+    }
+
+    void PopCombatText(int value)
+    {
+        CombatText.instance.PopText(this, value);
     }
 }

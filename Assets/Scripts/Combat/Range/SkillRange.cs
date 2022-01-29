@@ -10,6 +10,10 @@ public abstract class SkillRange : MonoBehaviour
 
     public virtual string GetDirection()
     {
+        if (Turn.targets[0] == Turn.unitCharacter.tile)
+        {
+            return Turn.unitCharacter.direction;
+        }
         return Turn.unitCharacter.tile.GetDirection(Turn.targets[0]);
     }
 

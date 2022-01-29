@@ -26,7 +26,16 @@ public class TurnBeginState : State
             Turn.unitCharacter.onTurnBegin();
         }
         yield return null;
-        machine.ChangeTo<ChooseActionState>();
+        if (Turn.unitCharacter.GetStat(StatEnum.HP) <= 0)
+        {
+            Turn.unitCharacter.animationController.Death();
+            machine.ChangeTo<TurnEndState>();
+        }
+        else
+        {
+            machine.ChangeTo<ChooseActionState>();
+        }
+
     }
 
     void BreakDawn()
