@@ -15,4 +15,21 @@ public abstract class CombatStatus : MonoBehaviour
             m.Deactivate();
         }
     }
+
+    public void SetModifiersValue(int value)
+    {
+        foreach (Modifier m in GetComponents<Modifier>())
+        {
+            m.value = value;
+        }
+    }
+
+    public void Stack(int rcvDuration, int value)
+    {
+        duration += rcvDuration;
+        foreach (Modifier m in GetComponents<Modifier>())
+        {
+            m.value += value;
+        }
+    }
 }

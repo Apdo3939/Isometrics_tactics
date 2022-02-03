@@ -6,6 +6,14 @@ public class Skill : MonoBehaviour
 {
     public int manaCost;
     public Sprite icon;
+    Transform primary;
+    Transform secondary;
+
+    void Awake()
+    {
+        primary = transform.Find("Primary");
+        secondary = transform.Find("Secondary");
+    }
 
     public bool CanUse()
     {
@@ -42,9 +50,13 @@ public class Skill : MonoBehaviour
         {
             UnitCharacter uc = Turn.targets[i].content.GetComponent<UnitCharacter>();
 
-            if (uc != null && RollToHit(uc))
+            if (uc != null && RollToHit(uc, primary))
             {
-                GetComponentInChildren<SkillEffect>().Apply(uc);
+                primary.GetComponentInChildren<SkillEffect>().Apply(uc);
+                if (secondary.childCount != 0 && RollToHit(uc, secondary))
+                {
+                    secondary.GetComponentInChildren<SkillEffect>().Apply(uc);
+                }
             }
         }
     }
@@ -60,9 +72,9 @@ public class Skill : MonoBehaviour
         return targets;
     }
 
-    bool RollToHit(UnitCharacter uc)
+    bool RollToHit(UnitCharacter uc, Transform effect)
     {
-        bool hit = GetComponentInChildren<HitRate>().TryToHit(uc);
+        bool hit = effect.GetComponentInChildren<HitRate>().TryToHit(uc);
         if (hit)
         {
             Debug.Log("Hit!!!");
@@ -74,11 +86,21 @@ public class Skill : MonoBehaviour
 
     public int GetHitPrediction(UnitCharacter target)
     {
-        return GetComponentInChildren<HitRate>().Predict(target);
+        return primary.GetComponentInChildren<HitRate>().Predict(target);
     }
 
     public int GetEffectPrediction(UnitCharacter target)
     {
-        return GetComponentInChildren<SkillEffect>().Predict(target);
+        return primary.GetComponentInChildren<SkillEffect>().Predict(target);
+    }
+
+    public int GetHitPrediction(UnitCharacter target, Transform effect)
+    {
+        return effect.GetComponentInChildren<HitRate>().Predict(target);
+    }
+
+    public int GetEffectPrediction(UnitCharacter target, Transform effect)
+    {
+        return effect.GetComponentInChildren<SkillEffect>().Predict(target);
     }
 }

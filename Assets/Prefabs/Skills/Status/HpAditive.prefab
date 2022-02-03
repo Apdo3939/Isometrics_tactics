@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6129436810801225120}
   - component: {fileID: 591327969250566920}
   m_Layer: 0
-  m_Name: Bleed
+  m_Name: HpAditive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,4 +59,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 0
-  value: -10
+  value: 0
