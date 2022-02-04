@@ -55,8 +55,15 @@ public class Skill : MonoBehaviour
         for (int i = 0; i < Turn.targets.Count; i++)
         {
             UnitCharacter uc = Turn.targets[i].content.GetComponent<UnitCharacter>();
+            if (uc == null)
+            {
+                continue;
+            }
 
-            if (uc != null && RollToHit(uc, primary))
+            bool didHit = RollToHit(uc, primary);
+            VFX(uc, didHit);
+
+            if (didHit)
             {
                 primary.GetComponentInChildren<SkillEffect>().Apply(uc);
                 if (secondary.childCount != 0 && RollToHit(uc, secondary))
@@ -70,6 +77,17 @@ public class Skill : MonoBehaviour
     void FilterContent(List<TileLogic> targets)
     {
         targets.RemoveAll((x) => x.content == null);
+    }
+
+    void VFX(UnitCharacter target, bool didHit)
+    {
+        SkillVisualFX fx = GetComponentInChildren<SkillVisualFX>();
+        if (fx != null)
+        {
+            fx.target = target;
+            fx.didHit = didHit;
+            fx.VFX();
+        }
     }
 
     public List<TileLogic> GetArea()
