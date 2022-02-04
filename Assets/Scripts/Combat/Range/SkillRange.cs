@@ -6,7 +6,11 @@ public abstract class SkillRange : MonoBehaviour
 {
     public int range;
     public int verticalRange;
-    public bool directionOriented;
+
+    public virtual bool IsDirectionOriented()
+    {
+        return false;
+    }
 
     public virtual string GetDirection()
     {

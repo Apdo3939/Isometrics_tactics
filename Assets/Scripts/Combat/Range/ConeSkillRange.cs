@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ConeSkillRange : SkillRange
 {
-    void Awake()
+    public override bool IsDirectionOriented()
     {
-        directionOriented = true;
+        return true;
     }
-
     public override List<TileLogic> GetTilesInRange()
     {
         UnitCharacter unit = Turn.unitCharacter;

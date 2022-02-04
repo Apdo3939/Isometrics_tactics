@@ -6,14 +6,20 @@ public class Skill : MonoBehaviour
 {
     public int manaCost;
     public Sprite icon;
-    Transform primary;
-    Transform secondary;
-
-    void Awake()
+    Transform _primary;
+    Transform primary
     {
-        primary = transform.Find("Primary");
-        secondary = transform.Find("Secondary");
+        get
+        {
+            if (_primary == null)
+            {
+                _primary = transform.Find("Primary");
+                secondary = transform.Find("Secondary");
+            }
+            return _primary;
+        }
     }
+    Transform secondary;
 
     public bool CanUse()
     {

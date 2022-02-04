@@ -11,7 +11,7 @@ public class SkillTargetState : State
     {
         base.Enter();
 
-        directionOriented = Turn.skill.GetComponentInChildren<SkillRange>().directionOriented;
+        directionOriented = Turn.skill.GetComponentInChildren<SkillRange>().IsDirectionOriented();
 
         if (directionOriented)
         {

@@ -59,7 +59,7 @@ public class SkillSelectionState : State
     {
         Transform skillBook = Turn.unitCharacter.transform.Find("SkillBook");
         skills = new List<Skill>();
-        skills.AddRange(skillBook.GetComponentsInChildren<Skill>());
+        skills.AddRange(skillBook.GetComponent<Skillbook>().skills);
 
         for (int i = 0; i < 5; i++)
         {
