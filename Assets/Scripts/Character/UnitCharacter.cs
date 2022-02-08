@@ -19,9 +19,11 @@ public class UnitCharacter : MonoBehaviour
     public AnimationController animationController;
     public OnTurnBegin onTurnBegin;
     public Image lifeBar;
+    public AudioSource audioSource;
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         stats = GetComponentInChildren<Stats>();
         SS = transform.Find("Jumper/Sprite").GetComponent<SpriteSwapper>();
         animationController = GetComponent<AnimationController>();
@@ -87,13 +89,9 @@ public class UnitCharacter : MonoBehaviour
         {
             lifeBar.color = Color.green;
         }
-        else if (fillvalue >= 0.50)
-        {
-            lifeBar.color = Color.yellow;
-        }
         else if (fillvalue >= 0.25)
         {
-            lifeBar.color = Color.magenta;
+            lifeBar.color = Color.yellow;
         }
         else
         {

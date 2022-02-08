@@ -51,6 +51,7 @@ public class Skill : MonoBehaviour
     public void Perform()
     {
         FilterContent(Turn.targets);
+        SFX();
 
         for (int i = 0; i < Turn.targets.Count; i++)
         {
@@ -126,5 +127,14 @@ public class Skill : MonoBehaviour
     public int GetEffectPrediction(UnitCharacter target, Transform effect)
     {
         return effect.GetComponentInChildren<SkillEffect>().Predict(target);
+    }
+
+    void SFX()
+    {
+        SkillSoundFX sfx = GetComponentInChildren<SkillSoundFX>();
+        if (sfx != null)
+        {
+            sfx.Play();
+        }
     }
 }
