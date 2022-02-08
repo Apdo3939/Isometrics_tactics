@@ -1161,6 +1161,10 @@ MonoBehaviour:
   - factions: 01000000
     units:
     - {fileID: 0}
+  jobs:
+  - {fileID: 11400000, guid: 040623dbe9f813a4b991ac2457e11009, type: 2}
+  - {fileID: 11400000, guid: 3606749262fc3cb4f8c1febb37074cd5, type: 2}
+  - {fileID: 11400000, guid: 454ca91c031973b4b91e4756e1997f69, type: 2}
 --- !u!1 &384976003
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,12 @@ public class MapLoader : MonoBehaviour
     GameObject holder;
     public List<Alliance> alliances;
 
+    public List<Job> jobs;
+    public Dictionary<string, Job> searchJobs;
+
     void Awake()
     {
+        BuildJobsDictionary();
         instance = this;
         holder = new GameObject("Characters holder");
     }
@@ -23,17 +27,16 @@ public class MapLoader : MonoBehaviour
 
     public void CreateCharacters()
     {
-        UnitCharacter uc01 = CreateUnit(new Vector3Int(0, 2, 0), "Jogador01", "Mini-Crusader");
-        UnitCharacter uc02 = CreateUnit(new Vector3Int(0, -5, 0), "Inimigo01", "Mini-Crusader");
+        CreateUnit(new Vector3Int(0, 1, 0), "Jogador01", "Mini-Crusader", "Mage", 0);
+        CreateUnit(new Vector3Int(0, 2, 0), "Jogador02", "Mini-Crusader", "Knight", 0);
+        CreateUnit(new Vector3Int(0, 3, 0), "Jogador03", "Mini-Crusader", "Warrior", 0);
 
-        StateMachineController.instance.units.Add(uc01);
-        StateMachineController.instance.units.Add(uc02);
-
-        uc01.faction = 0;
-        uc02.faction = 1;
+        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Mini-Crusader", "Knight", 1);
+        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mini-Crusader", "Mage", 1);
+        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Mini-Crusader", "Warrior", 1);
     }
 
-    public UnitCharacter CreateUnit(Vector3Int pos, string name, string spriteModel)
+    public UnitCharacter CreateUnit(Vector3Int pos, string name, string spriteModel, string job, int faction)
     {
         TileLogic t = Board.GetTile(pos);
         UnitCharacter uc = Instantiate(
@@ -46,17 +49,12 @@ public class MapLoader : MonoBehaviour
         uc.name = name;
         t.content = uc.gameObject;
         uc.spriteModel = spriteModel;
+        uc.faction = faction;
+        StateMachineController.instance.units.Add(uc);
 
         t.content = uc.gameObject;
 
-        for (int i = 0; i < uc.stats.stats.Count; i++)
-        {
-            uc.stats.stats[i].baseValue = Random.Range(5, 100);
-        }
-
-        uc.stats[StatEnum.HP].baseValue = uc.stats[StatEnum.MaxHP].baseValue;
-        uc.stats[StatEnum.MP].baseValue = uc.stats[StatEnum.MaxMP].baseValue;
-        uc.stats[StatEnum.MOV].baseValue = 5;
+        uc.stats.stats = searchJobs[job].stats;
         uc.UpdateStat();
 
         return uc;
@@ -67,6 +65,15 @@ public class MapLoader : MonoBehaviour
         for (int i = 0; i < alliances.Count; i++)
         {
             alliances[i].units = new List<UnitCharacter>();
+        }
+    }
+
+    void BuildJobsDictionary()
+    {
+        searchJobs = new Dictionary<string, Job>();
+        foreach (Job j in jobs)
+        {
+            searchJobs.Add(j.name, j);
         }
     }
 
