@@ -69,3 +69,7 @@ MonoBehaviour:
     currentValue: 4
     baseValue: 4
     growth: 0
+  skills:
+  - {fileID: 3734582967023794498, guid: 9c9cb5143f47f8644a8af0c1d40b97bf, type: 3}
+  - {fileID: 8236570205902780692, guid: 585bf1d1a0b24e14d9e9627037e27a3f, type: 3}
+  spriteModel: Mini-Crusader

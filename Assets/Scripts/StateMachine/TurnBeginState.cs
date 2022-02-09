@@ -28,7 +28,9 @@ public class TurnBeginState : State
         yield return null;
         if (Turn.unitCharacter.GetStat(StatEnum.HP) <= 0)
         {
-            Turn.unitCharacter.animationController.Death();
+            if (Turn.unitCharacter.active)
+                Turn.unitCharacter.animationController.Death();
+            Turn.unitCharacter.active = false;
             machine.ChangeTo<TurnEndState>();
         }
         else

@@ -27,35 +27,42 @@ public class MapLoader : MonoBehaviour
 
     public void CreateCharacters()
     {
-        CreateUnit(new Vector3Int(0, 1, 0), "Jogador01", "Mini-Crusader", "Mage", 0);
-        CreateUnit(new Vector3Int(0, 2, 0), "Jogador02", "Mini-Crusader", "Knight", 0);
-        CreateUnit(new Vector3Int(0, 3, 0), "Jogador03", "Mini-Crusader", "Warrior", 0);
+        CreateUnit(new Vector3Int(-7, 3, 0), "Jogador01", "Mage", 0);
+        CreateUnit(new Vector3Int(-7, 2, 0), "Jogador02", "Knight", 0);
+        CreateUnit(new Vector3Int(-7, 1, 0), "Jogador03", "Warrior", 0);
 
-        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Mini-Crusader", "Knight", 1);
-        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mini-Crusader", "Mage", 1);
-        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Mini-Crusader", "Warrior", 1);
+        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Knight", 1);
+        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mage", 1);
+        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Warrior", 1);
     }
 
-    public UnitCharacter CreateUnit(Vector3Int pos, string name, string spriteModel, string job, int faction)
+    public UnitCharacter CreateUnit(Vector3Int pos, string name, string job, int faction)
     {
         TileLogic t = Board.GetTile(pos);
+
         UnitCharacter uc = Instantiate(
             unitCharacter,
             t.worldPos,
             Quaternion.identity,
             holder.transform
         );
+
+        Job jobAsset = searchJobs[job];
         uc.tile = t;
         uc.name = name;
         t.content = uc.gameObject;
-        uc.spriteModel = spriteModel;
+        uc.spriteModel = jobAsset.spriteModel;
         uc.faction = faction;
         StateMachineController.instance.units.Add(uc);
 
         t.content = uc.gameObject;
 
-        uc.stats.stats = searchJobs[job].stats;
+        SetStats(uc.stats, jobAsset);
         uc.UpdateStat();
+
+        Skillbook skillbook = uc.GetComponentInChildren<Skillbook>();
+        skillbook.skills = new List<Skill>();
+        skillbook.skills.AddRange(jobAsset.skills);
 
         return uc;
     }
@@ -75,6 +82,23 @@ public class MapLoader : MonoBehaviour
         {
             searchJobs.Add(j.name, j);
         }
+    }
+
+    void SetStats(Stats stats, Job job)
+    {
+        stats.stats = new List<Stat>();
+        for (int i = 0; i < job.stats.Count; i++)
+        {
+            Stat stat = new Stat();
+            stat.baseValue = job.stats[i].baseValue;
+            stat.currentValue = job.stats[i].currentValue;
+            stat.growth = job.stats[i].growth;
+            stat.type = job.stats[i].type;
+            stats.stats.Add(stat);
+        }
+
+        stats.stats[(int)StatEnum.HP].baseValue = stats.stats[(int)StatEnum.MaxHP].baseValue;
+        stats.stats[(int)StatEnum.MP].baseValue = stats.stats[(int)StatEnum.MaxMP].baseValue;
     }
 
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Job : ScriptableObject
 {
     public List<Stat> stats;
+    public List<Skill> skills;
+    public string spriteModel;
 
     [ContextMenu("Init Stats")]
     public void InitStats()
