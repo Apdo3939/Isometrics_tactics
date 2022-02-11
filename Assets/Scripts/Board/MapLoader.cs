@@ -27,16 +27,15 @@ public class MapLoader : MonoBehaviour
 
     public void CreateCharacters()
     {
-        CreateUnit(new Vector3Int(-7, 3, 0), "Jogador01", "Mage", 0);
-        CreateUnit(new Vector3Int(-7, 2, 0), "Jogador02", "Knight", 0);
-        CreateUnit(new Vector3Int(-7, 1, 0), "Jogador03", "Warrior", 0);
-
-        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Knight", 1);
-        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mage", 1);
-        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Warrior", 1);
+        CreateUnit(new Vector3Int(-7, 3, 0), "Jogador01", "Mage", 0, 1);
+        CreateUnit(new Vector3Int(-7, 2, 0), "Jogador02", "Knight", 0, 1);
+        CreateUnit(new Vector3Int(-7, 1, 0), "Jogador03", "Warrior", 0, 1);
+        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Knight", 1, 1);
+        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mage", 1, 1);
+        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Warrior", 1, 1);
     }
 
-    public UnitCharacter CreateUnit(Vector3Int pos, string name, string job, int faction)
+    public UnitCharacter CreateUnit(Vector3Int pos, string name, string job, int faction, int level)
     {
         TileLogic t = Board.GetTile(pos);
 
@@ -59,6 +58,8 @@ public class MapLoader : MonoBehaviour
 
         SetStats(uc.stats, jobAsset);
         uc.UpdateStat();
+
+        Job.LevelUp(uc, level - 1);
 
         Skillbook skillbook = uc.GetComponentInChildren<Skillbook>();
         skillbook.skills = new List<Skill>();

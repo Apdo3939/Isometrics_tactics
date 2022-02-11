@@ -32,7 +32,7 @@ MonoBehaviour:
   - type: 4
     currentValue: 1
     baseValue: 1
-    growth: 1
+    growth: 0
   - type: 5
     currentValue: 20
     baseValue: 20

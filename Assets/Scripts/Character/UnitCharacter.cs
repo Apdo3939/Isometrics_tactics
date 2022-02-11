@@ -12,7 +12,7 @@ public class UnitCharacter : MonoBehaviour
     public int alliance;
     public TileLogic tile;
     public int chargeTime;
-    public bool active;
+    public bool _active;
     public string spriteModel;
     public SpriteSwapper SS;
     public string direction = "South";
@@ -20,6 +20,19 @@ public class UnitCharacter : MonoBehaviour
     public OnTurnBegin onTurnBegin;
     public Image lifeBar;
     public AudioSource audioSource;
+    public int experience;
+    public bool active
+    {
+        get { return _active; }
+        set
+        {
+            if (_active && !value)
+            {
+                GiveExp();
+            }
+            _active = value;
+        }
+    }
 
     void Awake()
     {
@@ -42,7 +55,6 @@ public class UnitCharacter : MonoBehaviour
 
     public void SetStat(StatEnum stat, int value)
     {
-        //stats.stats[(int)stat].currentValue += value;
         if (stat == StatEnum.HP)
         {
             stats[stat].currentValue = ClampStat(StatEnum.MaxHP, stats[stat].currentValue + value);
@@ -62,7 +74,6 @@ public class UnitCharacter : MonoBehaviour
 
     public void UpdateStat(StatEnum stat)
     {
-        //Stat toUpdate = stats.stats[(int)stat];
         Stat toUpdate = stats[stat];
         toUpdate.currentValue = stats[stat].baseValue;
         if (toUpdate.modifiers != null)
@@ -102,5 +113,17 @@ public class UnitCharacter : MonoBehaviour
     void PopCombatText(int value)
     {
         CombatText.instance.PopText(this, value);
+    }
+
+    void GiveExp()
+    {
+        foreach (UnitCharacter u in StateMachineController.instance.units)
+        {
+            if (u.alliance != alliance)
+            {
+                u.experience += 1000;
+                Job.CheckLevelUp(u);
+            }
+        }
     }
 }
