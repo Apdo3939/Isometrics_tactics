@@ -20,22 +20,34 @@ public class TurnBeginState : State
         BreakDawn();
         machine.units.Sort((x, y) => x.chargeTime.CompareTo(y.chargeTime));
         Turn.unitCharacter = machine.units[0];
+
         yield return null;
         if (Turn.unitCharacter.onTurnBegin != null)
         {
             Turn.unitCharacter.onTurnBegin();
         }
+
         yield return null;
         if (Turn.unitCharacter.GetStat(StatEnum.HP) <= 0)
         {
             if (Turn.unitCharacter.active)
+            {
                 Turn.unitCharacter.animationController.Death();
+            }
+
             Turn.unitCharacter.active = false;
             machine.ChangeTo<TurnEndState>();
         }
         else
         {
-            machine.ChangeTo<ChooseActionState>();
+            if (Job.CanAdvance(Turn.unitCharacter))
+            {
+                machine.ChangeTo<JobAdavanceState>();
+            }
+            else
+            {
+                machine.ChangeTo<ChooseActionState>();
+            }
         }
 
     }

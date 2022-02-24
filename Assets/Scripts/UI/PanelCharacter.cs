@@ -40,6 +40,8 @@ public class PanelCharacter : MonoBehaviour
         def.text = "DF: " + unit.stats[StatEnum.DEF].currentValue;
 
         ct.text = "CT: " + unit.chargeTime;
+
+        portrait.sprite = unit.job.portrait;
     }
 
     public void Show(UnitCharacter unit)

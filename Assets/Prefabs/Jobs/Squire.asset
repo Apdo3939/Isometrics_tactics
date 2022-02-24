@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 295574a6fb70b6f4f804e96e3e5c1a7e, type: 3}
-  m_Name: Mage
+  m_Name: Squire
   m_EditorClassIdentifier: 
   stats:
   - type: 0
@@ -22,13 +22,13 @@ MonoBehaviour:
     baseValue: 10
     growth: 5
   - type: 2
-    currentValue: 10
-    baseValue: 10
+    currentValue: 5
+    baseValue: 5
     growth: 0
   - type: 3
-    currentValue: 10
-    baseValue: 10
-    growth: 5
+    currentValue: 5
+    baseValue: 5
+    growth: 2
   - type: 4
     currentValue: 1
     baseValue: 1
@@ -42,25 +42,25 @@ MonoBehaviour:
     baseValue: 5
     growth: 2
   - type: 7
-    currentValue: 10
-    baseValue: 10
-    growth: 5
+    currentValue: 5
+    baseValue: 5
+    growth: 2
   - type: 8
-    currentValue: 10
-    baseValue: 10
-    growth: 5
+    currentValue: 5
+    baseValue: 5
+    growth: 1
   - type: 9
     currentValue: 75
     baseValue: 75
     growth: 0
   - type: 10
-    currentValue: 30
-    baseValue: 30
+    currentValue: 25
+    baseValue: 25
     growth: 0
   - type: 11
-    currentValue: 30
-    baseValue: 30
-    growth: 5
+    currentValue: 5
+    baseValue: 5
+    growth: 2
   - type: 12
     currentValue: 20
     baseValue: 20
@@ -71,13 +71,11 @@ MonoBehaviour:
     growth: 0
   skills:
   - {fileID: 3734582967023794498, guid: 9c9cb5143f47f8644a8af0c1d40b97bf, type: 3}
-  - {fileID: -9185142531419076123, guid: bf793bc4bd19b114f8ca4005f08c236f, type: 3}
-  - {fileID: -9185142531419076123, guid: 851fcc5eb233f8a4cb2c21acc9990f88, type: 3}
-  - {fileID: -9185142531419076123, guid: 2c1d67a762c4c7c4bb4a31406792839d, type: 3}
-  - {fileID: 8236570205902780692, guid: e87d09f302ff3c243a8a08f73b5fc7ad, type: 3}
+  - {fileID: -9185142531419076123, guid: 616fc6287e26d9147aab5dd93e3d2fa4, type: 3}
   spriteModel: Mini-Crusader
-  advanceAtLevel: 10
+  advanceAtLevel: 5
   advancesTo:
-  - {fileID: 11400000, guid: 1baf66307438f2a4c90f84de6f7fc42c, type: 2}
-  portrait: {fileID: 21300000, guid: d5039491f5bc9774cadc2805bb7995c2, type: 3}
-  description: "Guerreiro com uma boa magia e pouca for\xE7a f\xEDsica."
+  - {fileID: 11400000, guid: 3606749262fc3cb4f8c1febb37074cd5, type: 2}
+  - {fileID: 11400000, guid: 040623dbe9f813a4b991ac2457e11009, type: 2}
+  portrait: {fileID: 21300000, guid: c8e73ad679db6004bb27401df56274d4, type: 3}
+  description: "Aprendiz com for\xE7a e magias baixo!"

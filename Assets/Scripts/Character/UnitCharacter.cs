@@ -21,6 +21,7 @@ public class UnitCharacter : MonoBehaviour
     public Image lifeBar;
     public AudioSource audioSource;
     public int experience;
+    public Job job;
     public bool active
     {
         get { return _active; }

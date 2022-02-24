@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 295574a6fb70b6f4f804e96e3e5c1a7e, type: 3}
-  m_Name: Warrior
+  m_Name: Thief
   m_EditorClassIdentifier: 
   stats:
   - type: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   - type: 5
     currentValue: 20
     baseValue: 20
-    growth: 5
+    growth: 10
   - type: 6
     currentValue: 20
     baseValue: 20
@@ -48,32 +48,29 @@ MonoBehaviour:
   - type: 8
     currentValue: 5
     baseValue: 5
-    growth: 1
+    growth: 2
   - type: 9
     currentValue: 100
     baseValue: 100
     growth: 0
   - type: 10
-    currentValue: 40
-    baseValue: 40
+    currentValue: 50
+    baseValue: 50
     growth: 0
   - type: 11
     currentValue: 5
     baseValue: 5
     growth: 2
   - type: 12
-    currentValue: 30
-    baseValue: 30
+    currentValue: 45
+    baseValue: 45
     growth: 0
   - type: 13
-    currentValue: 5
-    baseValue: 5
+    currentValue: 6
+    baseValue: 6
     growth: 0
   skills:
   - {fileID: 3734582967023794498, guid: 9c9cb5143f47f8644a8af0c1d40b97bf, type: 3}
-  - {fileID: 8236570205902780692, guid: 585bf1d1a0b24e14d9e9627037e27a3f, type: 3}
-  - {fileID: 8236570205902780692, guid: e87d09f302ff3c243a8a08f73b5fc7ad, type: 3}
   spriteModel: Mini-Crusader
-  advanceAtLevel: 20
-  advancesTo:
-  - {fileID: 11400000, guid: d145164fb0538fc478ca67dfd7b0b386, type: 2}
+  advanceAtLevel: 999
+  adavancesTo: []

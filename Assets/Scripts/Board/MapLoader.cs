@@ -8,9 +8,9 @@ public class MapLoader : MonoBehaviour
     public UnitCharacter unitCharacter;
     GameObject holder;
     public List<Alliance> alliances;
-
     public List<Job> jobs;
     public Dictionary<string, Job> searchJobs;
+    public List<UnitSerialized> serializedUnit;
 
     void Awake()
     {
@@ -27,17 +27,15 @@ public class MapLoader : MonoBehaviour
 
     public void CreateCharacters()
     {
-        CreateUnit(new Vector3Int(-7, 3, 0), "Jogador01", "Mage", 0, 1);
-        CreateUnit(new Vector3Int(-7, 2, 0), "Jogador02", "Knight", 0, 1);
-        CreateUnit(new Vector3Int(-7, 1, 0), "Jogador03", "Warrior", 0, 1);
-        CreateUnit(new Vector3Int(0, -4, 0), "Inimigo01", "Knight", 1, 1);
-        CreateUnit(new Vector3Int(0, -5, 0), "Inimigo02", "Mage", 1, 1);
-        CreateUnit(new Vector3Int(0, -6, 0), "Inimigo03", "Warrior", 1, 1);
+        for (int i = 0; i < serializedUnit.Count; i++)
+        {
+            CreateUnit(serializedUnit[i]);
+        }
     }
 
-    public UnitCharacter CreateUnit(Vector3Int pos, string name, string job, int faction, int level)
+    public UnitCharacter CreateUnit(UnitSerialized serialized)
     {
-        TileLogic t = Board.GetTile(pos);
+        TileLogic t = Board.GetTile(serialized.position);
 
         UnitCharacter uc = Instantiate(
             unitCharacter,
@@ -46,24 +44,16 @@ public class MapLoader : MonoBehaviour
             holder.transform
         );
 
-        Job jobAsset = searchJobs[job];
         uc.tile = t;
-        uc.name = name;
+        uc.name = serialized.charactersName;
         t.content = uc.gameObject;
-        uc.spriteModel = jobAsset.spriteModel;
-        uc.faction = faction;
+        uc.faction = serialized.faction;
         StateMachineController.instance.units.Add(uc);
 
-        t.content = uc.gameObject;
+        Job jobAsset = searchJobs[serialized.job];
+        Job.Employ(uc, jobAsset, serialized.level);
 
-        SetStats(uc.stats, jobAsset);
-        uc.UpdateStat();
-
-        Job.LevelUp(uc, level - 1);
-
-        Skillbook skillbook = uc.GetComponentInChildren<Skillbook>();
-        skillbook.skills = new List<Skill>();
-        skillbook.skills.AddRange(jobAsset.skills);
+        uc.experience = Job.GetExpCurveValue(serialized.level);
 
         return uc;
     }
@@ -84,22 +74,4 @@ public class MapLoader : MonoBehaviour
             searchJobs.Add(j.name, j);
         }
     }
-
-    void SetStats(Stats stats, Job job)
-    {
-        stats.stats = new List<Stat>();
-        for (int i = 0; i < job.stats.Count; i++)
-        {
-            Stat stat = new Stat();
-            stat.baseValue = job.stats[i].baseValue;
-            stat.currentValue = job.stats[i].currentValue;
-            stat.growth = job.stats[i].growth;
-            stat.type = job.stats[i].type;
-            stats.stats.Add(stat);
-        }
-
-        stats.stats[(int)StatEnum.HP].baseValue = stats.stats[(int)StatEnum.MaxHP].baseValue;
-        stats.stats[(int)StatEnum.MP].baseValue = stats.stats[(int)StatEnum.MaxMP].baseValue;
-    }
-
 }

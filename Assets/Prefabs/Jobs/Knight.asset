@@ -22,13 +22,13 @@ MonoBehaviour:
     baseValue: 10
     growth: 10
   - type: 2
-    currentValue: 1
-    baseValue: 1
+    currentValue: 5
+    baseValue: 5
     growth: 0
   - type: 3
-    currentValue: 1
-    baseValue: 1
-    growth: 1
+    currentValue: 5
+    baseValue: 5
+    growth: 3
   - type: 4
     currentValue: 1
     baseValue: 1
@@ -36,35 +36,35 @@ MonoBehaviour:
   - type: 5
     currentValue: 5
     baseValue: 5
-    growth: 2
+    growth: 3
   - type: 6
     currentValue: 5
     baseValue: 5
-    growth: 2
+    growth: 3
   - type: 7
-    currentValue: 2
-    baseValue: 2
-    growth: 1
+    currentValue: 5
+    baseValue: 5
+    growth: 3
   - type: 8
-    currentValue: 2
-    baseValue: 2
-    growth: 1
+    currentValue: 5
+    baseValue: 5
+    growth: 3
   - type: 9
-    currentValue: 85
-    baseValue: 85
+    currentValue: 100
+    baseValue: 100
     growth: 0
   - type: 10
-    currentValue: 20
-    baseValue: 20
-    growth: 2
+    currentValue: 50
+    baseValue: 50
+    growth: 0
   - type: 11
     currentValue: 10
     baseValue: 10
-    growth: 1
+    growth: 3
   - type: 12
-    currentValue: 5
-    baseValue: 5
-    growth: 1
+    currentValue: 25
+    baseValue: 25
+    growth: 0
   - type: 13
     currentValue: 5
     baseValue: 5
@@ -76,3 +76,9 @@ MonoBehaviour:
   - {fileID: 8236570205902780692, guid: 8882523e1d060b84aa816a42626202ea, type: 3}
   - {fileID: 8236570205902780692, guid: 832ad29ecc1579543a52332f7bc38105, type: 3}
   spriteModel: Mini-Crusader
+  advanceAtLevel: 10
+  advancesTo:
+  - {fileID: 11400000, guid: d145164fb0538fc478ca67dfd7b0b386, type: 2}
+  - {fileID: 11400000, guid: 454ca91c031973b4b91e4756e1997f69, type: 2}
+  portrait: {fileID: 21300000, guid: 709004a7641e7c64a9d6779130d74d0e, type: 3}
+  description: "Guereiro com boa for\xE7a f\xEDsica e alguma magia."

@@ -31,6 +31,9 @@ public class StateMachineController : MonoBehaviour
     public PanelCharacter panelCharacterLeft;
     public PanelCharacter panelCharacterRight;
 
+    [Header("JobsAdvance")]
+    public PanelAdvanceJob panelAdvanceJob;
+
     private void Awake()
     {
         instance = this;
