@@ -10,4 +10,5 @@ public class UnitSerialized
     public Vector3Int position;
     public int faction;
     public int level;
+    public List<Item> items;
 }

@@ -53,6 +53,8 @@ public class MapLoader : MonoBehaviour
         Job jobAsset = searchJobs[serialized.job];
         Job.Employ(uc, jobAsset, serialized.level);
 
+        CreateItems(serialized.items, uc);
+
         uc.experience = Job.GetExpCurveValue(serialized.level);
 
         return uc;
@@ -74,4 +76,21 @@ public class MapLoader : MonoBehaviour
             searchJobs.Add(j.name, j);
         }
     }
+
+    void CreateItems(List<Item> items, UnitCharacter unit)
+    {
+        Transform itemHolder = unit.transform.Find("Equipment");
+        for (int i = 0; i < items.Count; i++)
+        {
+            CreateItems(items[i], unit, itemHolder);
+        }
+    }
+
+    void CreateItems(Item item, UnitCharacter unit, Transform holder)
+    {
+        Item instantiated = Instantiate(item, unit.transform.position, Quaternion.identity, holder);
+        unit.equipment.Equip(instantiated);
+        instantiated.name = instantiated.name.Replace("(Clone)", "");
+    }
+
 }

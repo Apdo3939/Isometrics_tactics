@@ -22,6 +22,7 @@ public class UnitCharacter : MonoBehaviour
     public AudioSource audioSource;
     public int experience;
     public Job job;
+    public Equipment equipment;
     public bool active
     {
         get { return _active; }
@@ -41,6 +42,7 @@ public class UnitCharacter : MonoBehaviour
         stats = GetComponentInChildren<Stats>();
         SS = transform.Find("Jumper/Sprite").GetComponent<SpriteSwapper>();
         animationController = GetComponent<AnimationController>();
+        equipment = GetComponentInChildren<Equipment>();
     }
 
     void Start()
