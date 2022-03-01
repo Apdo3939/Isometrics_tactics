@@ -6,19 +6,14 @@ public abstract class Modifier : MonoBehaviour
 {
     public StatEnum stat;
     public float value;
-    UnitCharacter host;
+    protected UnitCharacter host;
 
     public virtual void Activate(UnitCharacter unit)
     {
         host = unit;
-        host.stats[stat].modifiers += Modify;
-        host.UpdateStat(stat);
-    }
-    public virtual void Deactivate()
-    {
-        host.stats[stat].modifiers -= Modify;
-        host.UpdateStat(stat);
     }
 
-    protected abstract void Modify(Stat stat);
+    public abstract void Deactivate();
+
+    protected abstract void Modify(object args);
 }

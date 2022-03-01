@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - type: 0
-    currentValue: 20
-    baseValue: 20
+    currentValue: 100
+    baseValue: 100
     growth: 0
   - type: 1
-    currentValue: 20
-    baseValue: 20
+    currentValue: 100
+    baseValue: 100
     growth: 15
   - type: 2
     currentValue: 5
@@ -77,3 +77,5 @@ MonoBehaviour:
   advanceAtLevel: 20
   advancesTo:
   - {fileID: 11400000, guid: d145164fb0538fc478ca67dfd7b0b386, type: 2}
+  portrait: {fileID: 0}
+  description: 

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - type: 0
-    currentValue: 20
-    baseValue: 20
+    currentValue: 100
+    baseValue: 100
     growth: 0
   - type: 1
-    currentValue: 20
-    baseValue: 20
+    currentValue: 100
+    baseValue: 100
     growth: 15
   - type: 2
     currentValue: 5
@@ -73,4 +73,6 @@ MonoBehaviour:
   - {fileID: 3734582967023794498, guid: 9c9cb5143f47f8644a8af0c1d40b97bf, type: 3}
   spriteModel: Mini-Crusader
   advanceAtLevel: 999
-  adavancesTo: []
+  advancesTo: []
+  portrait: {fileID: 0}
+  description: 

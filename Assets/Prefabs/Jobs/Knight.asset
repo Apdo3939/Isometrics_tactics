@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - type: 0
-    currentValue: 10
-    baseValue: 10
+    currentValue: 100
+    baseValue: 100
     growth: 0
   - type: 1
-    currentValue: 10
-    baseValue: 10
+    currentValue: 100
+    baseValue: 100
     growth: 10
   - type: 2
     currentValue: 5

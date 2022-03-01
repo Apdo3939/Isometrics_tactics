@@ -31,7 +31,11 @@ public class DamageEffect : SkillEffect
                 defenderScore += target.GetStat(StatEnum.MDEF);
                 break;
         }
-        float calculation = (attackerScore - (defenderScore / 2)) * baseDamageMultiplier;
+
+        float attackerFinal = GetBonus(Turn.unitCharacter, attackerScore);
+        float defenderFinal = GetBonus(target, defenderScore);
+
+        float calculation = (attackerFinal - (defenderFinal / 2)) * baseDamageMultiplier;
         calculation = Mathf.Clamp(calculation, 0, 999);
         return (int)calculation;
     }
@@ -44,9 +48,6 @@ public class DamageEffect : SkillEffect
         int finalDamage = (int)(damage * roll);
         target.SetStat(StatEnum.HP, -finalDamage);
 
-        /*if(!isPrimary)
-            return;*/
-
         if (target.GetStat(StatEnum.HP) <= 0)
         {
             target.animationController.Death(gotHitDelay);
@@ -57,5 +58,23 @@ public class DamageEffect : SkillEffect
             target.animationController.GotHit(gotHitDelay);
         }
 
+    }
+
+    float GetBonus(UnitCharacter unit, float initialScore)
+    {
+        if (unit.stats.multiplicativeModifier == null)
+        {
+            return initialScore;
+        }
+
+        MultiplicativeForms forms = new MultiplicativeForms();
+        forms.originalValue = (int)initialScore;
+        unit.stats.multiplicativeModifier(forms);
+        float bonus = forms.currentValue;
+        float final = initialScore * (1 + (bonus / 100));
+
+        Debug.LogFormat("Initial: {0} * bonus: {1}, Final = {2}", initialScore, bonus, final);
+
+        return final;
     }
 }

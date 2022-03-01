@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 683838105488948010}
   - component: {fileID: 647977319626691900}
   - component: {fileID: 3364167993324593958}
+  - component: {fileID: 261612191711308021}
   m_Layer: 0
   m_Name: Pole
   m_TagString: Untagged
@@ -60,4 +61,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 5
-  value: 15
+  value: 20
+--- !u!114 &261612191711308021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473836065778844886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18753a9943bfb45468a2fa9b58dfa093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: 5
+  value: 10

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 683838105488948010}
   - component: {fileID: 647977319626691900}
   - component: {fileID: 667499848539304813}
+  - component: {fileID: -675184073110538763}
   m_Layer: 0
   m_Name: Iron Armor
   m_TagString: Untagged
@@ -61,3 +62,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: 6
   value: 20
+--- !u!114 &-675184073110538763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473836065778844886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18753a9943bfb45468a2fa9b58dfa093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: 6
+  value: 20
+  type: 1

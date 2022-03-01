@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - type: 0
-    currentValue: 10
-    baseValue: 10
+    currentValue: 30
+    baseValue: 30
     growth: 0
   - type: 1
-    currentValue: 10
-    baseValue: 10
+    currentValue: 30
+    baseValue: 30
     growth: 5
   - type: 2
     currentValue: 5
@@ -72,6 +72,8 @@ MonoBehaviour:
   skills:
   - {fileID: 3734582967023794498, guid: 9c9cb5143f47f8644a8af0c1d40b97bf, type: 3}
   - {fileID: -9185142531419076123, guid: 616fc6287e26d9147aab5dd93e3d2fa4, type: 3}
+  - {fileID: 8236570205902780692, guid: 8882523e1d060b84aa816a42626202ea, type: 3}
+  - {fileID: 8236570205902780692, guid: 585bf1d1a0b24e14d9e9627037e27a3f, type: 3}
   spriteModel: Mini-Crusader
   advanceAtLevel: 5
   advancesTo:

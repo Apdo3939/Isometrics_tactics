@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class AdditiveModifier : Modifier
 {
+    protected override void Modify(object args)
+    {
+        Stat stat = (Stat)args;
+        stat.currentValue += (int)value;
+    }
     public override void Activate(UnitCharacter unity)
     {
         base.Activate(unity);
+        host.stats[stat].additiveModifiers += Modify;
+        host.UpdateStat(stat);
     }
 
     public override void Deactivate()
     {
-        base.Deactivate();
+        host.stats[stat].additiveModifiers -= Modify;
+        host.UpdateStat(stat);
     }
 
-    protected override void Modify(Stat stat)
-    {
-        stat.currentValue += (int)value;
-    }
 }

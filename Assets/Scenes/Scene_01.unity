@@ -1290,36 +1290,31 @@ MonoBehaviour:
     level: 1
     items:
     - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
+    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
   - charactersName: Jogador 02
     job: Squire
     position: {x: -7, y: 2, z: 0}
     faction: 0
     level: 1
-    items: []
-  - charactersName: Jogador 03
+    items:
+    - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
+    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
+  - charactersName: inimigo 01
     job: Squire
-    position: {x: -7, y: 1, z: 0}
-    faction: 0
+    position: {x: 0, y: -3, z: 0}
+    faction: 1
     level: 1
-    items: []
-  - charactersName: Inimigo 01
+    items:
+    - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
+    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
+  - charactersName: Inimigo 02
     job: Squire
     position: {x: 0, y: -4, z: 0}
     faction: 1
     level: 1
-    items: []
-  - charactersName: Inimigo 02
-    job: Squire
-    position: {x: 1, y: -4, z: 0}
-    faction: 1
-    level: 1
-    items: []
-  - charactersName: Inimigo 03
-    job: Squire
-    position: {x: 2, y: -4, z: 0}
-    faction: 1
-    level: 1
-    items: []
+    items:
+    - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
+    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
 --- !u!1 &384976003
 GameObject:
   m_ObjectHideFlags: 0

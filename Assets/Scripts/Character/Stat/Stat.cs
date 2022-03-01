@@ -11,5 +11,5 @@ public class Stat
     public int currentValue;
     public int baseValue;
     public float growth;
-    public StatModifier modifiers;
+    public StatModifier additiveModifiers;
 }

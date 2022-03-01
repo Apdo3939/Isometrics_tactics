@@ -79,9 +79,9 @@ public class UnitCharacter : MonoBehaviour
     {
         Stat toUpdate = stats[stat];
         toUpdate.currentValue = stats[stat].baseValue;
-        if (toUpdate.modifiers != null)
+        if (toUpdate.additiveModifiers != null)
         {
-            toUpdate.modifiers(toUpdate);
+            toUpdate.additiveModifiers(toUpdate);
         }
     }
 
