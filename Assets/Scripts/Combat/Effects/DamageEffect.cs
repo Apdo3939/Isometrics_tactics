@@ -9,10 +9,11 @@ public enum DamageType
 }
 public class DamageEffect : SkillEffect
 {
-    public DamageType damageType;
     [Header("Not in %")]
     public float baseDamageMultiplier = 1;
     public float randomness = 0.2f;
+    public DamageType damageType;
+    public ElementalType elementalType;
     public float gotHitDelay = 0.1f;
 
     public override int Predict(UnitCharacter target)
@@ -32,8 +33,8 @@ public class DamageEffect : SkillEffect
                 break;
         }
 
-        float attackerFinal = GetBonus(Turn.unitCharacter, attackerScore);
-        float defenderFinal = GetBonus(target, defenderScore);
+        float attackerFinal = GetBonus(Turn.unitCharacter, target, attackerScore);
+        float defenderFinal = GetBonus(target, Turn.unitCharacter, defenderScore);
 
         float calculation = (attackerFinal - (defenderFinal / 2)) * baseDamageMultiplier;
         calculation = Mathf.Clamp(calculation, 0, 999);
@@ -60,16 +61,21 @@ public class DamageEffect : SkillEffect
 
     }
 
-    float GetBonus(UnitCharacter unit, float initialScore)
+    float GetBonus(UnitCharacter thisUnit, UnitCharacter otherUnit, float initialScore)
     {
-        if (unit.stats.multiplicativeModifier == null)
+        if (thisUnit.stats.multiplicativeModifier == null)
         {
             return initialScore;
         }
 
         MultiplicativeForms forms = new MultiplicativeForms();
         forms.originalValue = (int)initialScore;
-        unit.stats.multiplicativeModifier(forms);
+        forms.thisUnit = thisUnit;
+        forms.otherUnit = otherUnit;
+        forms.elementalType = elementalType;
+
+        thisUnit.stats.multiplicativeModifier(forms);
+
         float bonus = forms.currentValue;
         float final = initialScore * (1 + (bonus / 100));
 

@@ -1297,8 +1297,8 @@ MonoBehaviour:
     faction: 0
     level: 1
     items:
-    - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
-    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
+    - {fileID: 647977319626691900, guid: fd679fe573984db48ba67f7107a02d96, type: 3}
+    - {fileID: 647977319626691900, guid: f4eba4e00e0fcbc4fa92ef63736925d0, type: 3}
   - charactersName: inimigo 01
     job: Squire
     position: {x: 0, y: -3, z: 0}
@@ -1313,8 +1313,8 @@ MonoBehaviour:
     faction: 1
     level: 1
     items:
-    - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
-    - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
+    - {fileID: 647977319626691900, guid: fd679fe573984db48ba67f7107a02d96, type: 3}
+    - {fileID: 647977319626691900, guid: f4eba4e00e0fcbc4fa92ef63736925d0, type: 3}
 --- !u!1 &384976003
 GameObject:
   m_ObjectHideFlags: 0

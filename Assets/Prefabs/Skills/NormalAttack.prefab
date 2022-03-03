@@ -430,7 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b6ac37ed4d8ab4e88b2326e6f01c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
   baseDamageMultiplier: 1
   randomness: 0.2
+  damageType: 0
+  elementalType: 6
   gotHitDelay: 0.5

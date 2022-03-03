@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   verticalRange: 2
-  directionOriented: 0
 --- !u!1 &1021362104209441267
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,9 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b6ac37ed4d8ab4e88b2326e6f01c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
   baseDamageMultiplier: 0.5
   randomness: 0.2
+  damageType: 0
+  elementalType: 7
   gotHitDelay: 0.1
 --- !u!1 &4358474943490807060
 GameObject:

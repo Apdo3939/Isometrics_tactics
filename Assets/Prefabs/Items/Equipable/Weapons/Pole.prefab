@@ -57,11 +57,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8473836065778844886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f66c1cfe94393a48a76cd63c5273952, type: 3}
+  m_Script: {fileID: 11500000, guid: 973d5a1be7b1be243b99cd9048412530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: 5
   value: 20
+  stat: 5
 --- !u!114 &261612191711308021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,5 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18753a9943bfb45468a2fa9b58dfa093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: 5
   value: 10
+  type: 0
+  condition: {fileID: 0}

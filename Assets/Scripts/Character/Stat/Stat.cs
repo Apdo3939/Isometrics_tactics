@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void StatModifier(Stat stat);
+public delegate void StatModifierHandler(Stat stat);
 
 [System.Serializable]
 public class Stat
@@ -11,5 +11,5 @@ public class Stat
     public int currentValue;
     public int baseValue;
     public float growth;
-    public StatModifier additiveModifiers;
+    public StatModifierHandler statModifiers;
 }

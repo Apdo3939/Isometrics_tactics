@@ -17,8 +17,8 @@ public class OverTimeStatus : CombatStatus
     void OverTimeEffect()
     {
         duration--;
-        Modifier[] modifiers = GetComponents<Modifier>();
-        foreach (Modifier m in modifiers)
+        StatModifier[] modifiers = GetComponents<StatModifier>();
+        foreach (StatModifier m in modifiers)
         {
             unit.SetStat(m.stat, (int)m.value);
         }

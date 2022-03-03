@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Modifier : MonoBehaviour
 {
-    public StatEnum stat;
+
     public float value;
     protected UnitCharacter host;
 

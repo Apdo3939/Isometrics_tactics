@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 683838105488948010}
   - component: {fileID: 647977319626691900}
-  - component: {fileID: 8882832828750626675}
+  - component: {fileID: 667499848539304813}
+  - component: {fileID: -675184073110538763}
   m_Layer: 0
-  m_Name: Archer
+  m_Name: FireArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d68d2f80b1aaf4e9a3517c94c278d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primarySlot: 3
-  secondarySlot: 4
-  useBoth: 1
---- !u!114 &8882832828750626675
+  primarySlot: 1
+  secondarySlot: 6
+  useBoth: 0
+--- !u!114 &667499848539304813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,5 +60,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973d5a1be7b1be243b99cd9048412530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 10
-  stat: 5
+  value: 20
+  stat: 6
+--- !u!114 &-675184073110538763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473836065778844886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18753a9943bfb45468a2fa9b58dfa093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 50
+  type: 1
+  condition: {fileID: 11400000, guid: 933d3c93fd97ce64ba999d3d69bb2ef8, type: 2}

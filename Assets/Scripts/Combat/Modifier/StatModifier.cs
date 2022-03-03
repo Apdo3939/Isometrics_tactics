@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdditiveModifier : Modifier
+public class StatModifier : Modifier
 {
+    public StatEnum stat;
     protected override void Modify(object args)
     {
         Stat stat = (Stat)args;
@@ -12,13 +13,13 @@ public class AdditiveModifier : Modifier
     public override void Activate(UnitCharacter unity)
     {
         base.Activate(unity);
-        host.stats[stat].additiveModifiers += Modify;
+        host.stats[stat].statModifiers += Modify;
         host.UpdateStat(stat);
     }
 
     public override void Deactivate()
     {
-        host.stats[stat].additiveModifiers -= Modify;
+        host.stats[stat].statModifiers -= Modify;
         host.UpdateStat(stat);
     }
 

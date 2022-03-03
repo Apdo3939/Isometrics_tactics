@@ -10,13 +10,14 @@ public enum MultiplicativeType
 public class MultiplicativeModifier : Modifier
 {
     public MultiplicativeType type;
+    public ModifierCondition condition;
 
     protected override void Modify(object args)
     {
-        MultiplicativeForms form = (MultiplicativeForms)args;
-        if (TypeCheck())
+        MultiplicativeForms forms = (MultiplicativeForms)args;
+        if (TypeCheck() && (condition == null || condition.Validate(forms)))
         {
-            form.currentValue = +(int)value;
+            forms.currentValue = +(int)value;
         }
     }
 
