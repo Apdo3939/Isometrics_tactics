@@ -50,6 +50,8 @@ public class MapLoader : MonoBehaviour
         uc.faction = serialized.faction;
         StateMachineController.instance.units.Add(uc);
 
+        uc.playerType = serialized.playerType;
+
         Job jobAsset = searchJobs[serialized.job];
         Job.Employ(uc, jobAsset, serialized.level);
 

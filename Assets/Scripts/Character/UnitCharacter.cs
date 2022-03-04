@@ -10,6 +10,7 @@ public class UnitCharacter : MonoBehaviour
     public Stats stats;
     public int faction;
     public int alliance;
+    public PlayerType playerType;
     public TileLogic tile;
     public int chargeTime;
     public bool _active;

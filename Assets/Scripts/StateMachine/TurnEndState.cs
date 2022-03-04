@@ -31,6 +31,13 @@ public class TurnEndState : State
         Turn.unitCharacter.chargeTime -= Turn.unitCharacter.GetStat(StatEnum.SPEED);
 
         Turn.hasActed = Turn.hasMoved = false;
+
+        //New code for AI
+        Turn.skill = null;
+        Turn.isItem = null;
+        ComputerPlayer.instance.currentPlan = null;
+        //End code for AI
+
         machine.units.Remove(Turn.unitCharacter);
         machine.units.Add(Turn.unitCharacter);
         yield return new WaitForSeconds(0.5f);

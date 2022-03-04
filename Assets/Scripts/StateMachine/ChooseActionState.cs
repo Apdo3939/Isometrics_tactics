@@ -7,14 +7,25 @@ public class ChooseActionState : State
 {
     public override void Enter()
     {
+        MoveSelector(Turn.unitCharacter.tile);
         base.Enter();
-        index = 0;
-        inputs.OnMove += OnMove;
-        inputs.OnFire += OnFire;
-        machine.chooseActionPanel.MoveTo("Show");
-        currentUISelector = machine.chooseActionSelector;
-        ChangeUISelector(machine.chooseActionButons);
-        CheckActions();
+
+        if (Turn.unitCharacter.playerType == PlayerType.Human)
+        {
+            index = 0;
+            inputs.OnMove += OnMove;
+            inputs.OnFire += OnFire;
+            machine.chooseActionPanel.MoveTo("Show");
+            currentUISelector = machine.chooseActionSelector;
+            ChangeUISelector(machine.chooseActionButons);
+            CheckActions();
+        }
+        else
+        {
+            Debug.Log("Computer playing!!!");
+            StartCoroutine(ComputerChooseAction());
+        }
+
     }
 
     public override void Exit()
@@ -92,5 +103,32 @@ public class ChooseActionState : State
                 break;
         }
 
+    }
+
+    //AI codes below
+
+    IEnumerator ComputerChooseAction()
+    {
+        AIPlan plan = ComputerPlayer.instance.currentPlan;
+        if (plan == null)
+        {
+            plan = ComputerPlayer.instance.Evaluate();
+            Turn.skill = plan.skill;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        if (Turn.hasMoved == false && plan.movePos != Turn.unitCharacter.tile.pos)
+        {
+            machine.ChangeTo<MoveSelectionState>();
+        }
+        else if (Turn.hasActed == false && Turn.skill != null)
+        {
+            machine.ChangeTo<SkillTargetState>();
+        }
+        else
+        {
+            machine.ChangeTo<TurnEndState>();
+        }
     }
 }
