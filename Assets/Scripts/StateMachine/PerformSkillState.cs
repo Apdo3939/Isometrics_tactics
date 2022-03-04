@@ -23,6 +23,10 @@ public class PerformSkillState : State
         Turn.unitCharacter.animationController.Attack();
         Turn.skill.Perform();
         yield return new WaitForSeconds(1.5f);
+        if (Turn.isItem != null)
+        {
+            Turn.unitCharacter.equipment.UnEquip(Turn.isItem);
+        }
         machine.ChangeTo<TurnEndState>();
 
     }

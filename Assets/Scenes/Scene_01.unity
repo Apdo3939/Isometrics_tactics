@@ -1291,6 +1291,7 @@ MonoBehaviour:
     items:
     - {fileID: 647977319626691900, guid: 5bad1d42918e10140ae6b414054b428d, type: 3}
     - {fileID: 647977319626691900, guid: 8d3c3824229842a4a95aca6838c25249, type: 3}
+    - {fileID: 6221612995040353477, guid: 55f6f0d496d44e643bf6dbc038189b59, type: 3}
   - charactersName: Jogador 02
     job: Squire
     position: {x: -7, y: 2, z: 0}

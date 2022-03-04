@@ -46,3 +46,5 @@ MonoBehaviour:
   primarySlot: 5
   secondarySlot: 6
   useBoth: 0
+  icon: {fileID: 21300000, guid: 09d3e8609cf721f4687af257d460eb13, type: 3}
+  skill: {fileID: -9185142531419076123, guid: 55197d862c2064a408b1dd7fa087fcc4, type: 3}

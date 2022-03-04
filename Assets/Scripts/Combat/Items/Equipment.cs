@@ -56,6 +56,18 @@ public class Equipment : MonoBehaviour
         }
     }
 
+    public void UnEquip(Item item)
+    {
+        foreach (ItemSlots slot in itemSlots)
+        {
+            if (slot.item == item)
+            {
+                slot.item = null;
+                Destroy(item.gameObject);
+            }
+        }
+    }
+
     public Item GetItem(ItemSlotEnum slot)
     {
         return itemSlots[(int)slot].item;

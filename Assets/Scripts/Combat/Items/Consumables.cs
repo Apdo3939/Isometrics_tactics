@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Consumables : Item
 {
+    public Skill skill;
     public override void Use(UnitCharacter unit)
     {
         Debug.Log("Consumido!");

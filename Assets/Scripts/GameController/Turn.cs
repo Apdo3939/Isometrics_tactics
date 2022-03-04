@@ -9,4 +9,5 @@ public static class Turn
     public static UnitCharacter unitCharacter;
     public static Skill skill;
     public static List<TileLogic> targets;
+    public static Item isItem;
 }
