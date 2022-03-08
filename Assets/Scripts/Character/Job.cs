@@ -12,6 +12,7 @@ public class Job : ScriptableObject
     public Sprite portrait;
     [TextArea]
     public string description;
+    public GameObject AISkillPicks;
 
     public void InitStats()
     {

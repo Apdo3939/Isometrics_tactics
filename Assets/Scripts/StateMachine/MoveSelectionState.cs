@@ -8,12 +8,22 @@ public class MoveSelectionState : State
     public override void Enter()
     {
         base.Enter();
+
         MoveSelector(Turn.unitCharacter.tile);
-        inputs.OnMove += OnMoveTileSelector;
-        inputs.OnFire += OnFire;
+
         tiles = Board.instance.Search(Turn.unitCharacter.tile, Turn.unitCharacter.GetComponent<Movement>().ValidateMovement);//change here if create a mess!!!
         tiles.Remove(Turn.unitCharacter.tile);
         Board.instance.SelectTiles(tiles, Turn.unitCharacter.alliance);
+
+        if (Turn.unitCharacter.playerType == PlayerType.Human)
+        {
+            inputs.OnMove += OnMoveTileSelector;
+            inputs.OnFire += OnFire;
+        }
+        else
+        {
+            StartCoroutine(ComputerSelectMovetarget());
+        }
     }
 
     public override void Exit()
@@ -37,5 +47,32 @@ public class MoveSelectionState : State
         {
             machine.ChangeTo<ChooseActionState>();
         }
+    }
+
+    IEnumerator ComputerSelectMovetarget()
+    {
+        AIPlan plan = ComputerPlayer.instance.currentPlan;
+        while (Selector.instance.position != plan.movePos)
+        {
+            if (Selector.instance.position.x < plan.movePos.x)
+            {
+                OnMoveTileSelector(null, Vector3Int.right);
+            }
+            if (Selector.instance.position.x > plan.movePos.x)
+            {
+                OnMoveTileSelector(null, Vector3Int.left);
+            }
+            if (Selector.instance.position.y < plan.movePos.y)
+            {
+                OnMoveTileSelector(null, Vector3Int.up);
+            }
+            if (Selector.instance.position.y > plan.movePos.y)
+            {
+                OnMoveTileSelector(null, Vector3Int.down);
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(0.5f);
+        machine.ChangeTo<MoveSequenceState>();
     }
 }

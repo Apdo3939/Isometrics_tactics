@@ -82,3 +82,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 040623dbe9f813a4b991ac2457e11009, type: 2}
   portrait: {fileID: 21300000, guid: c8e73ad679db6004bb27401df56274d4, type: 3}
   description: "Aprendiz com for\xE7a e magias baixo!"
+  AISkillPicks: {fileID: 8279519689394411317, guid: e4024c5e132f06d4ea8e7a12fdfcd72c, type: 3}

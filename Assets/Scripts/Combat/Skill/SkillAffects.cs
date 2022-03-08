@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SkillAffectsType
 {
-    All,
+    Default,
     AllyOnly,
     EnemyOnly,
 }
