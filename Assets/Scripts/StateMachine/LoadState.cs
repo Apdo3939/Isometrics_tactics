@@ -25,6 +25,7 @@ public class LoadState : State
         yield return null;
         SetBlockers(blockers);
         yield return null;
+        Time.timeScale = 3;
         StateMachineController.instance.ChangeTo<TurnBeginState>();
     }
 

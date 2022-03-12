@@ -7,12 +7,22 @@ public class ConfirmSkillState : State
     public override void Enter()
     {
         base.Enter();
-        inputs.OnFire += OnFire;
+
         Turn.targets = Turn.skill.GetArea();
         board.SelectTiles(Turn.targets, Turn.unitCharacter.alliance);
 
         machine.panelSkillPrediction.SetPredictionText();
         machine.panelSkillPrediction.positioner.MoveTo("Show");
+
+        if (Turn.unitCharacter.playerType == PlayerType.Human)
+        {
+            inputs.OnFire += OnFire;
+        }
+        else
+        {
+            machine.panelCharacterLeft.Show(Turn.unitCharacter);
+            StartCoroutine(ComputerConfimSkill());
+        }
     }
 
     public override void Exit()
@@ -43,5 +53,12 @@ public class ConfirmSkillState : State
         {
             machine.ChangeTo<SkillTargetState>();
         }
+    }
+
+    IEnumerator ComputerConfimSkill()
+    {
+        yield return new WaitForSeconds(0.75f);
+        machine.panelCharacterLeft.Hide();
+        machine.ChangeTo<PerformSkillState>();
     }
 }

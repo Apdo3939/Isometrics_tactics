@@ -8,7 +8,7 @@ public class AIPlan
     public SkillAffectsType targetType;
     public Vector3Int movePos;
     public Vector3Int skillTargetPos;
-    public char direction;
+    public string direction;
 }
 
 

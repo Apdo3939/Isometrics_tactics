@@ -52,26 +52,7 @@ public class MoveSelectionState : State
     IEnumerator ComputerSelectMovetarget()
     {
         AIPlan plan = ComputerPlayer.instance.currentPlan;
-        while (Selector.instance.position != plan.movePos)
-        {
-            if (Selector.instance.position.x < plan.movePos.x)
-            {
-                OnMoveTileSelector(null, Vector3Int.right);
-            }
-            if (Selector.instance.position.x > plan.movePos.x)
-            {
-                OnMoveTileSelector(null, Vector3Int.left);
-            }
-            if (Selector.instance.position.y < plan.movePos.y)
-            {
-                OnMoveTileSelector(null, Vector3Int.up);
-            }
-            if (Selector.instance.position.y > plan.movePos.y)
-            {
-                OnMoveTileSelector(null, Vector3Int.down);
-            }
-            yield return new WaitForSeconds(0.5f);
-        }
+        yield return StartCoroutine(AIMoveSelector(plan.movePos));
         yield return new WaitForSeconds(0.5f);
         machine.ChangeTo<MoveSequenceState>();
     }

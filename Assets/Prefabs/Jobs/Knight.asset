@@ -82,3 +82,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 454ca91c031973b4b91e4756e1997f69, type: 2}
   portrait: {fileID: 21300000, guid: 709004a7641e7c64a9d6779130d74d0e, type: 3}
   description: "Guereiro com boa for\xE7a f\xEDsica e alguma magia."
+  AISkillPicks: {fileID: 8279519689394411317, guid: e4024c5e132f06d4ea8e7a12fdfcd72c, type: 3}

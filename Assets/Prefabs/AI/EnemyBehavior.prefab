@@ -10,12 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4346404649501853281}
   - component: {fileID: 6598453283278586741}
-  - component: {fileID: 2374831760788917142}
-  - component: {fileID: 2858453419760329878}
-  - component: {fileID: 1975571892897506283}
-  - component: {fileID: 8686015780296964539}
+  - component: {fileID: 7702476388861563492}
   m_Layer: 0
-  m_Name: FigtherBehavior
+  m_Name: EnemyBehavior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,46 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: NormalAttack
---- !u!114 &2374831760788917142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8279519689394411317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c9a9b8309607614eaac717f8fc29998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillsToPick: []
---- !u!114 &2858453419760329878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8279519689394411317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5a4c55d2ca6b949ba1b985543b970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
---- !u!114 &1975571892897506283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8279519689394411317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5a4c55d2ca6b949ba1b985543b970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
---- !u!114 &8686015780296964539
+--- !u!114 &7702476388861563492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -11,22 +11,27 @@ public class SkillTargetState : State
     {
         base.Enter();
 
-        directionOriented = Turn.skill.GetComponentInChildren<SkillRange>().IsDirectionOriented();
-
-        if (directionOriented)
-        {
-            inputs.OnMove += ChangeDirection;
-        }
-
-        else
-        {
-            inputs.OnMove += OnMoveTileSelector;
-        }
-
-        inputs.OnFire += OnFire;
-
         selectedTiles = Turn.skill.GetTargets();
         board.SelectTiles(selectedTiles, Turn.unitCharacter.alliance);
+
+        directionOriented = Turn.skill.GetComponentInChildren<SkillRange>().IsDirectionOriented();
+        if (Turn.unitCharacter.playerType == PlayerType.Human)
+        {
+            if (directionOriented)
+            {
+                inputs.OnMove += ChangeDirection;
+            }
+            else
+            {
+                inputs.OnMove += OnMoveTileSelector;
+            }
+            inputs.OnFire += OnFire;
+        }
+        else
+        {
+            StartCoroutine(ComputerTargeting());
+        }
+
     }
 
     public override void Exit()
@@ -84,5 +89,39 @@ public class SkillTargetState : State
             selectedTiles = Turn.skill.GetTargets();
             board.SelectTiles(selectedTiles, Turn.unitCharacter.alliance);
         }
+    }
+
+    IEnumerator ComputerTargeting()
+    {
+        SkillRange sr = Turn.skill.GetComponentInChildren<SkillRange>();
+        AIPlan plan = ComputerPlayer.instance.currentPlan;
+
+        if (sr.IsDirectionOriented())
+        {
+            switch (plan.direction)
+            {
+                case "North":
+                    ChangeDirection(null, Vector3Int.up);
+                    break;
+                case "South":
+                    ChangeDirection(null, Vector3Int.down);
+                    break;
+                case "East":
+                    ChangeDirection(null, Vector3Int.right);
+                    break;
+                default:
+                    ChangeDirection(null, Vector3Int.left);
+                    break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+        else
+        {
+            //Selector.instance.tile = Turn.unitCharacter.tile;
+            yield return StartCoroutine(AIMoveSelector(plan.skillTargetPos));
+        }
+        yield return new WaitForSeconds(0.5f);
+        Turn.targets = selectedTiles;
+        machine.ChangeTo<ConfirmSkillState>();
     }
 }

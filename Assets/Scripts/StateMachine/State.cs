@@ -54,4 +54,28 @@ public class State : MonoBehaviour
         currentUISelector.transform.localPosition =
         buttons[index].transform.localPosition;
     }
+
+    protected IEnumerator AIMoveSelector(Vector3Int destination)
+    {
+        while (Selector.instance.position != destination)
+        {
+            if (Selector.instance.position.x < destination.x)
+            {
+                OnMoveTileSelector(null, Vector3Int.right);
+            }
+            if (Selector.instance.position.x > destination.x)
+            {
+                OnMoveTileSelector(null, Vector3Int.left);
+            }
+            if (Selector.instance.position.y < destination.y)
+            {
+                OnMoveTileSelector(null, Vector3Int.up);
+            }
+            if (Selector.instance.position.y > destination.y)
+            {
+                OnMoveTileSelector(null, Vector3Int.down);
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
 }

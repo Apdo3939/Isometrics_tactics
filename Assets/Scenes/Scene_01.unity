@@ -1286,7 +1286,7 @@ MonoBehaviour:
   - charactersName: Jogador 01
     job: Squire
     position: {x: -7, y: 3, z: 0}
-    playerType: 0
+    playerType: 1
     faction: 0
     level: 1
     items:
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   - charactersName: Jogador 02
     job: Squire
     position: {x: -7, y: 2, z: 0}
-    playerType: 0
+    playerType: 1
     faction: 0
     level: 1
     items:
